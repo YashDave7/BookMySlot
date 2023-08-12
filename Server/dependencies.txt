@@ -1,0 +1,8 @@
+expressjs (For Server)
+mongoose (For database connection)
+cors
+dotenv (For securing the mongoDB/jsonwebtoken string)
+express-validator (For validation on server side)
+jsonwebtoken (For assigning token to the logged in user)
+react-toastify (For push notifications)
+bcryptjs (For hashing passwords)
