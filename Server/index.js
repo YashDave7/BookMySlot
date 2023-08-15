@@ -18,9 +18,9 @@ app.use(cors());
 app.use(express.json());
 
 // AVAILABLE ROUTES.
-// app.use('/api/auth', require('./routes/auth'));
-// app.use('/api/authProfessional', require('./routes/authProfessional'));
-// app.use('/api/booking', require('./routes/booking'));
+app.use('/api/auth', require('./routes/auth'));
+app.use('/api/authProfessional', require('./routes/authProfessional'));
+app.use('/api/booking', require('./routes/booking'));
 
 // RUNNING THE APPLICATION ON THE LOCALHOST PORT.
 app.listen(port, () => {
