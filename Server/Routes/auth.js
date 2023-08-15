@@ -52,7 +52,7 @@ router.post('/createuser', [
     } catch (error) {
         console.log(error.message);
         toast.error('Internal Server Error');
-        res.status(500).send("Some Error Occured");
+        res.status(500).send("Some Error Occured!!!");
     }
 })
 
