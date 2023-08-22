@@ -19,7 +19,7 @@ export default function Navbar(props) {
                     </form>
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item">
-                            <Link className="nav-link" to="loginProfessional">Join as a Professional</Link>
+                            <Link className="nav-link" to="professional/register">Join as a Professional</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/user/login">Login </Link>

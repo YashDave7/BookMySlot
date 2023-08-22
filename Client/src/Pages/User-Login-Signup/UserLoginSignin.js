@@ -28,7 +28,7 @@ const UserLoginSignin = () => {
                 // Save the authToken and Redirect.
                 localStorage.setItem('token', json.authToken);
                 toast.success("Logged In Successfully");
-                navigate("/");
+                navigate("/user/home");
             }
             else {
                 toast.error("Invalid credentials");
@@ -65,7 +65,7 @@ const UserLoginSignin = () => {
             if (json.authToken) {
                 // Save the authToken and Redirect.
                 localStorage.setItem('token', json.authToken);
-                navigate("/");
+                navigate("/user/home");
                 toast.success("Account Created Successfully");
             }
             else {
