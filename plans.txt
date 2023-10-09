@@ -1,0 +1,11 @@
+1. razorpay integration. 
+2. send mail and sms on booking an appointment. (nodemailer)
+3. fetch user location and show professional in that location. (js inbuilt funct -> lat, long -> locationIQ API -> city name)
+4. DB models need to be restructured.
+5. can use Clerk Api for user and professional authentication (will add more trusty UI)
+6. Keep UI very simple, not much colorful.
+7. will try to add a cut from the amount paid via razorpay and show it as our revenue
+8. google translate api integration.
+9. USP -> free medical camps update to the users via mail and notification section.
+10. USP -> group bookings like for dance workshops.
+11. list rival companies in ppt.
