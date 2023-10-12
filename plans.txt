@@ -9,3 +9,11 @@
 9. USP -> free medical camps update to the users via mail and notification section.
 10. USP -> group bookings like for dance workshops.
 11. list rival companies in ppt.
+
+
+
+Pages:-
+1. notification Page
+2. user home Page
+3. professional page templete.
+4. 
