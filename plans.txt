@@ -7,9 +7,9 @@
 7. will try to add a cut from the amount paid via razorpay and show it as our revenue
 8. google translate api integration.
 9. USP -> free medical camps update to the users via mail and notification section.
-10. USP -> group bookings like for dance workshops.
+10. USP -> group bookings like for    workshops.
 11. list rival companies in ppt.
-
+   
 
 
 Pages:-
