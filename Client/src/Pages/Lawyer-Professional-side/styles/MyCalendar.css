@@ -1,0 +1,93 @@
+/* MyCalendar.css */
+
+/* Style the container for the calendar */
+.Calendar {
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    padding: 20px;
+    width: 300px; /* Adjust the width to your desired size */
+    text-align: center; /* Center the calendar within its container */
+  }
+  
+  /* Style the calendar header */
+  .react-calendar__navigation {
+    background-color: white !important;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  
+  /* Style the calendar title (month and year) */
+  .react-calendar__navigation__label {
+    font-size: 13px;
+    border: 1px solid #ddd;
+  }
+  
+  
+  
+  /* Style the calendar header buttons (previous and next) */
+  .react-calendar__navigation__arrow {
+    background-color: #f6f2f2;
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border: 1px solid #ddd;
+  }
+  
+  
+  /*react-calendar__month-view__weekdays__weekday react-calendar__month-view__weekdays__weekday--current*/
+  /* Style the days of the week (Sun, Mon, Tue, etc.) */
+  .react-calendar__month-view__weekdays {
+    border: 1px solid white;
+    
+  }
+  
+  .react-calendar__month-view__weekdays__weekday--current{
+    background-color: #6474e5;
+    
+  }
+  
+  
+  
+  .abbr[data-original-title], abbr[title]  {
+    text-decoration: none;
+    text-align: center; /* Remove text decoration (underline) */
+  } 
+  
+  
+  
+  
+  /* Style individual day cells */
+  .react-calendar__month-view__weekdays {
+    border: 1px solid white;
+    border-radius: 5px;
+    
+    
+  }
+  
+  /* Style selected day cell */
+  .react-calendar__tile--active {
+    background-color: #87DFDB;
+    color: black;
+    
+    border: 1px solid white;
+  }
+  .react-calendar__tile {
+    border: 1px solid white;
+    padding: 5px;
+    background-color: white ;
+  }
+  /* Style today's date cell */
+  .react-calendar__tile--now {
+    background-color: #87DFDB;
+    border: 1px solid #ddd;
+  }
+  
+  

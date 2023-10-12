@@ -14,12 +14,14 @@ function App() {
         <Navbar />
         <ToastNotifications />
         <Routes>
-          <Route exact path='/' element={ <LandingPage /> } />
+        <Route path="/doctordashboard" element={<DoctorDashboard/>} />
+          <Route path="/lawyerdashboard" element={<LawyerDashboard/>} />
+          <Route path="/counsellordashboard" element={<CounsellorDashboard/>} />
           <Route exact path='/user/login' element={ <UserLoginSignin /> } />
           <Route exact path='/user/signup' element={ <UserLoginSignin /> } />
           <Route exact path='/user/home' element={ <UserHomePage /> } />
           <Route exact path='/professional/register' element={ <ProfessionalLogin /> } />
-          <Route exact path='/professional/home' element={ <ProfessionalHomePage /> } />
+          <Route exact path='/professional/home' element={<DoctorDashboard/>} />
         </Routes>
       </Router>
 
