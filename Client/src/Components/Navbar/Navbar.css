@@ -1,0 +1,11 @@
+/* Navbar.css */
+.custom-btn {
+    color: #9AA4EC; /* Text color */
+    border-color: #9AA4EC; /* Border color */
+}
+
+.custom-btn:hover {
+    background-color: #9AA4EC; /* Background color on hover */
+    color: #fff; /* Text color on hover */
+    border: 1px solid #9AA4EC;
+}
