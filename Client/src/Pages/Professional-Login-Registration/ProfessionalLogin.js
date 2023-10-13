@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import profimg from "./proffesional.png"
 // import './UserLoginSignin.css';
 
 const ProfessionalLogin = () => {
     let navigate = useNavigate();
+
+    const [showLogin, setShowLogin] = useState(true);  // Added state to control login form visibility
+    const [showRegister, setShowRegister] = useState(false); 
 
     // REGISTER API.
     const [registerCredentials, setRegisterCredentials] = useState({ email: '', name: '', mobile: '', profession: '', specialisation: '', age: '', gender: '', address: '', city: '', fees: '', timing: '', password: '' });
@@ -81,27 +85,39 @@ const ProfessionalLogin = () => {
 
     const toggleRegister = () => {
         console.log("Toggle to Register");
+        setShowLogin(false);
+        setShowRegister(true);
     }
 
     const toggleLogin = () => {
         console.log("Toggle to Login");
+        setShowLogin(true);
+        setShowRegister(false);
     }
     return (
         <>
             <div className="form-modal">
-                <div className="form-toggle">
+                <div id='prof-toggle' className="form-toggle">
                     <button id="" onClick={toggleLogin}>log in</button>
                     <button id="" onClick={toggleRegister}>Register</button>
                 </div>
+                <div className='login-page-image'>
+                    <div>
+                    <img id='proff' className='calender-img' src={profimg}></img>
+                    </div>
+                    {showLogin && (
                 <div id="login-form">
                     <form onSubmit={handleLoginSubmit}>
                         <input type="email" name='email' onChange={onChangeLogin} defaultValue={loginCredentials.email} placeholder="Enter email" />
                         <input type="password" name='password' onChange={onChangeLogin} defaultValue={loginCredentials.password} placeholder="Enter password" />
-                        <button type="submit" className="btn login">login</button>
-                        <p><Link to="">Forgotten account</Link></p>
-                        <hr />
+                        <button id='prof-btn' type="submit" className="btn login">login</button>
+                        <p id='prof-details' className='form-details'><Link to="">Forgotten account</Link></p>
+                        {/* <hr /> */}
                     </form>
                 </div>
+                    )}
+
+{showRegister && (
                 <div id="signup-form">
                     <form onSubmit={handleRegisterSubmit}>
                         <input type="text" name='name' defaultValue={registerCredentials.name} onChange={onChangeRegister} placeholder="Enter your name" />
@@ -117,11 +133,14 @@ const ProfessionalLogin = () => {
                         <input type="text" name='timing' defaultValue={registerCredentials.timing} onChange={onChangeRegister} placeholder="Enter Timing" />
                         <input type="password" name='password' defaultValue={registerCredentials.password} onChange={onChangeRegister} placeholder="Enter Password" />
                         <input type="password" name='confirmPassword' defaultValue={registerCredentials.confirmPassword} onChange={onChangeRegister} placeholder="Confirm password" />
-                        <button type="submit" className="btn signup">create account</button>
-                        <p>Clicking <strong>create account</strong> means that you are agree to our <Link to="">terms of services</Link>.</p>
-                        <hr />
+                        <button id='prof-btn' type="submit" className="btn signup">create account</button>
+                        <p id='prof-details' className='form-details'>Clicking <strong>create account</strong> means that you are agree to our <Link to="">terms of services</Link>.</p>
+                        {/* <hr /> */}
                     </form>
                 </div>
+)}
+            </div>
+           
             </div>
         </>
     )
