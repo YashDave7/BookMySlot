@@ -54,7 +54,14 @@ const ProfessionalSchema = new Schema({
     date: {
         type: Date,
         default: Date.now
-    }
+    },
+    reviews: [
+        {
+            user_id: { type: mongoose.Schema.Types.ObjectId, required: true },
+            review: { type: String, required: true },
+            date: { type: Date, default: Date.now }
+        }
+    ]
 });
 
 module.exports = mongoose.model('professional', ProfessionalSchema);

@@ -22,6 +22,7 @@ app.use('/api/auth', require('./routes/auth'));
 app.use('/api/authProfessional', require('./routes/authProfessional'));
 app.use('/api/booking', require('./routes/booking'));
 app.use('/api/getAll', require('./routes/getAll'));
+app.use('/api/writeReview', require('./routes/review'));
 
 // RUNNING THE APPLICATION ON THE LOCALHOST PORT.
 app.listen(port, () => {
