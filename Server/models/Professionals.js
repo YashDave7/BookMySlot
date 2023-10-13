@@ -58,7 +58,8 @@ const ProfessionalSchema = new Schema({
     reviews: [
         {
             user_id: { type: mongoose.Schema.Types.ObjectId, required: true },
-            review: { type: String, required: true },
+            rate: {type: Number, required: true},
+            review: { type: String },
             date: { type: Date, default: Date.now }
         }
     ]

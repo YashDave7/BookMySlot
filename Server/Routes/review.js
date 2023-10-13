@@ -1,29 +1,34 @@
 const express = require('express');
 const User = require('../models/User');
 const Professionals = require('../models/Professionals');
+const fetchUser = require('../middleware/fetchUser');
 
 const router = express.Router();
 
 // ROUTE 1: User will write review : POST "api/writeReview". Login required.
-router.get('/writeReview/:id', async (req, res) => {
+router.post('/review/:id', fetchUser, async (req, res) => {
     try {
         // userid = req.user.id;
-        professionalid = req.professional.id;
-        professional = await Professionals.update(
-            { _id: professionalid },
-            {
-            reviews: [
-                {
-                    user_id: { type: mongoose.Schema.Types.ObjectId, required: true },
-                    review: { type: String, required: true },
-                    date: { type: Date, default: Date.now }
-                }
-            ]
-        })
+        const userId = req.user.id;
+        const professionalId = req.params.id;
 
+        const professional = await Professionals.findById(professionalId);
+        if (!professional) {
+            return res.status(404).send('Professional not found');
+        }
+
+        const newReview = {
+            user_id: userId,
+            rate: req.body.rate,
+            review: req.body.review
+        };
+
+        professional.reviews.push(newReview);
+        await professional.save();
+
+        res.send(newReview);
     } catch (error) {
         console.log(error.message);
-        toast.error('Internal Server Error');
         res.status(500).send("Some Error Occured");
     }
 })
