@@ -1,0 +1,27 @@
+.card {
+    height: 175px;
+    width: 90%;
+    margin: auto;
+    background-color: red;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items:center;
+}
+
+.card-image {
+    background-color: yellow;
+    width: 10%;
+    height: 60%;
+    margin-right: 30px;
+
+}
+
+.card-info {
+    background-color: yellow;
+    width: 80%;
+}
+
+.rate-avg {
+    background-color: green;
+}

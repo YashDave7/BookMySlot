@@ -23,6 +23,7 @@ function App() {
         <Navbar />
         <ToastNotifications />
         <Routes>
+        <Route path="/" element={<LandingPage />} />
         <Route path="/doctordashboard" element={<DoctorDashboard/>} />
           <Route path="/lawyerdashboard" element={<LawyerDashboard/>} />
           <Route path="/counsellordashboard" element={<CounsellorDashboard/>} />

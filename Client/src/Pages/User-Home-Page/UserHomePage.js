@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import './card.css';
 
 const UserHomePage = ({ setProfId }) => {
   let navigate = useNavigate();
@@ -33,20 +34,45 @@ const UserHomePage = ({ setProfId }) => {
 
   const goToProfessional = (professionalId) => {
     const newProfId = professionalId;
-    setProfId(newProfId); 
+    setProfId(newProfId);
     navigate(`/user/professional/${professionalId}`);
   }
 
   return (
     <>
-      <>
+      <div>
+        {professionals.map((item, i) => (
+          <div className="card">
+            <div className="card-image">
+
+            </div>
+            <div className="card-info">
+              <div className="prof-name">
+                {item.name}
+              </div>
+              <div className="rating">
+                <span className="rate-avg">4.8</span>
+                <span>124 Ratings</span>
+              </div>
+              <div className="prof-city">
+                {item.city}
+              </div>
+              <div className="prof-specialisation">
+                <span>{item.specialisation}</span>
+                {/* <span>Glaucoma</span> */}
+              </div>
+              <div className="book">
+                <button>Book Appointment</button>
+              </div>
+            </div>
+          </div>
+        ))}
+
         <div className="all_camps">
-          {professionals.map((item, i) => (
+          {/* {professionals.map((item, i) => (
             <div onClick={() => goToProfessional(item._id)}>
-              <div className="card-body">
-                {/* <div className='d-flex justify-content-between align-items-center'> */}
                 <h5 className="card-title">{item.name}</h5>
-                {/* </div> */}
+              
                 <div className='d-flex justify-content-between mb-0'>
                   <span class="badge text-bg-secondary" style={{ "color": "#F4EEE0" }}>{item.email}</span>
                   <div>
@@ -66,9 +92,9 @@ const UserHomePage = ({ setProfId }) => {
               </div>
 
             </div>
-          ))}
+          ))} */}
         </div>
-      </>
+      </div>
     </>
   )
 }
