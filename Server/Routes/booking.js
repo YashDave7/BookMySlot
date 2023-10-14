@@ -10,13 +10,14 @@ const router = express.Router();
 
 
 // ROUTE 1: User booking appointment of a professional : POST "api/booking/bookappointment". Login required.
-router.post('/bookappointment', fetchUser, fetchProfessional, async (req, res) => {
+router.post('/bookappointment/:id', fetchUser, async (req, res) => {
 
     try {
+        // console.log(auth-token);
         userid = req.user.id;
         const user = await User.findById(userid).select("-password");
         
-        professionalid = req.professional.id;
+        professionalid = req.params.id;
         const professional = await Professionals.findById(professionalid).select("-password");
         
         const { timing } = req.body;
@@ -45,7 +46,7 @@ router.post('/bookappointment', fetchUser, fetchProfessional, async (req, res) =
 
 
 // ROUTE 2: Cancel the appointment by User : POST "api/booking/usercancelappointment". Login required.
-router.post('/usercancelappointment/:id', fetchUser, async (req, res) => {
+router.put('/usercancelappointment/:id', fetchUser, async (req, res) => {
 
     try {
         // Find the appointment to be cancelled  it.
@@ -76,7 +77,7 @@ router.post('/usercancelappointment/:id', fetchUser, async (req, res) => {
             cancelled.professionalemobile = appointment.professionalmobile;
             cancelled.professionalprofession = appointment.professionalprofession;
             cancelled.professionalspecialisation = appointment.professionalspecialisation;
-            cancelled.timing = appointment.timing;
+            // cancelled.timing = appointment.timing;
             cancelled.status = "Cancelled by User";
         
 

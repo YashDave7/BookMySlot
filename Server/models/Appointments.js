@@ -13,7 +13,6 @@ const AppointmentSchema = new Schema({
     useremail: {
         type: String,
         required: true,
-        unique: true
     },
     usermobile: {
         type: String,
@@ -45,7 +44,7 @@ const AppointmentSchema = new Schema({
     },
     timing: {
         type: String,
-        required: true
+        // required: true
     },
     date: {
         type: Date,

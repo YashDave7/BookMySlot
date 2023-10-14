@@ -122,4 +122,17 @@ router.post('/getprofessional', fetchProfessional, async (req, res) => {
     }
 })
 
+// ROUTE 4: GET particular professional, user side. 
+router.post('/particularProfessional/:id', async (req, res) => {
+    try {
+        const professionalId = req.params.id;
+        const professional = await Professionals.findById(professionalId).select("-password");
+        res.send(professional);
+    } catch (error) {
+        console.log(error.message);
+        toast.error('Internal Server Error');
+        res.status(500).send("Some Error Occured");
+    }
+})
+
 module.exports = router;

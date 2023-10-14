@@ -10,8 +10,13 @@ import DoctorDashboard from './Pages/Doctor-Professional-Side/DoctorDashboard';
 import LawyerDashboard from './Pages/Lawyer-Professional-side/LawyerDashboard';
 import CounsellorDashboard from './Pages/Counsellor-Professional-Side/CounsellorDashboard';
 import '../src/App.css'
-import React, { useContext } from 'react';
+import React, { useState } from 'react';
+import Professional from './Pages/Professional-Page-templete/Professional';
+import UserAppointments from './Pages/User-Appointments-Page/UserAppointments';
 function App() {
+
+  const [profId, setProfId] = useState(''); 
+
   return (
     <>
       <Router>
@@ -23,7 +28,9 @@ function App() {
           <Route path="/counsellordashboard" element={<CounsellorDashboard/>} />
           <Route exact path='/user/login' element={ <UserLoginSignin /> } />
           <Route exact path='/user/signup' element={ <UserLoginSignin /> } />
-          <Route exact path='/user/home' element={ <UserHomePage /> } />
+          <Route exact path='/user/home' element={ <UserHomePage setProfId={setProfId} /> } />
+          <Route exact path='/user/appointments' element={ <UserAppointments /> } />
+          <Route exact path='/user/professional/:id' element={ <Professional profId={profId} /> } />
           <Route exact path='/professional/register' element={ <ProfessionalLogin /> } />
           <Route exact path='/professional/home' element={<DoctorDashboard/>} />
         </Routes>
