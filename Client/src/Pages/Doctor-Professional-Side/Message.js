@@ -7,11 +7,11 @@ function WelcomeMessage() {
   return (
     <div className='cont'>
       <div className="message">
-      <img src={doctor} />
-      <h1>Welcome Back, Doctor !</h1>
+        <img src={doctor} />
+        <h1>Welcome Back, Doctor !</h1>
+      </div>
     </div>
-    </div>
-    
+
   );
 }
 
