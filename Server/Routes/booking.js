@@ -92,7 +92,7 @@ router.put('/usercancelappointment/:id', fetchUser, async (req, res) => {
 
 
 // ROUTE 3: Cancel the appointment by Professional : POST "api/booking/professionalcancelappointment". Login required.
-router.post('/professionalcancelappointment/:id', fetchProfessional, async (req, res) => {
+router.put('/professionalcancelappointment/:id', fetchProfessional, async (req, res) => {
 
     try {
         // Find the appointment to be cancelled  it.
@@ -123,7 +123,7 @@ router.post('/professionalcancelappointment/:id', fetchProfessional, async (req,
             cancelled.professionalemobile = appointment.professionalmobile;
             cancelled.professionalprofession = appointment.professionalprofession;
             cancelled.professionalspecialisation = appointment.professionalspecialisation;
-            cancelled.timing = appointment.timing;
+            // cancelled.timing = appointment.timing;
             cancelled.status = "Cancelled by Professional";
         
 
