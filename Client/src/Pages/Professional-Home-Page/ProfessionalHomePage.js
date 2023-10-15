@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 // import React, { Component } from 'react';
 import Calendar from 'react-calendar';
 import './style/MyCalendar.css';
+import ProfDashboard from './ProfDashboard';
+import TodaysAppointmets from './TodaysAppointmets';
 
 const ProfessionalHomePage = () => {
 
@@ -70,24 +72,44 @@ const ProfessionalHomePage = () => {
 
   return (
     <>
-      Professional Home Page
+      <div className='container-fluid no-padding'>
+        <div className='row'>
+          <div className='side_bar col-2'>
+            <ProfDashboard/>
+          </div>
+          <div className='col-10'>
+            <div class="container-fluid no-padding">
+              <div class="row">
+                <div class="col-12" style={{ border: "2px solid red", height: '15vh'}}>Welcome Message</div>
+                <div class="col-8" style={{ border: "2px solid red" }}>
+                    <TodaysAppointmets/>
+                </div>
+                <div class="col-4" style={{ border: "2px solid red" }}>
+                  <div className="Calendar">
+                    <h1>Calendar</h1>
+                    <Calendar
+                      onChange={onChange}
+                      value={date}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
       {/* <MyCalendar /> */}
 
-      <div className="Calendar">
-        <h1>Calendar</h1>
-        <Calendar
-          onChange={onChange}
-          value={date}
-        />
-      </div>
 
-      <div className="all_camps">
+
+      {/* <div className="all_camps">
         {filteredAppointments.map((item, i) => (
           <div key={i}>
             <div className="card-body">
-              {/* <div className='d-flex justify-content-between align-items-center'> */}
+              {/* <div className='d-flex justify-content-between align-items-center'> 
               <h5 className="card-title">{item.username}</h5>
-              {/* </div> */}
+              {/* </div> 
               <div className='d-flex justify-content-between mb-0'>
                 <span class="badge text-bg-secondary" style={{ "color": "#F4EEE0" }}>{item.email}</span>
                 <div>
@@ -107,7 +129,7 @@ const ProfessionalHomePage = () => {
 
           </div>
         ))}
-      </div>
+      </div> */}
 
     </>
   )
