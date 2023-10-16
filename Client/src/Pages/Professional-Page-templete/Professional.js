@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 // import MyCalendar from './MyCalendar';
 import Calendar from 'react-calendar';
 import './style/MyCalendar.css';
+import axios from "axios"
 
 const Professional = (props) => {
   // let navigate = useNavigate();
@@ -10,6 +11,7 @@ const Professional = (props) => {
   const [selectedTime, setSelectedTime] = useState('');
   const [timeSlots, setTimeSlots] = useState([]);
   const [filteredTimeSlots, setFilteredTimeSlots] = useState([]);
+  const [cost, setCost] = useState(199);
 
   // const profID = props.profId;
 
@@ -37,8 +39,83 @@ const Professional = (props) => {
       const json = await response.json();
       setProfessional(json);
       setTimeSlots(json.yearlyTimings);
+      setCost(json.fees)
     } catch (error) {
     }
+  };
+
+  // API TO HANDLE PAYMENT.
+  const handlePayment = async () => {
+    try {
+
+      if (!localStorage.getItem("token")) {
+        alert("You have not logged in.");
+        return navigate("/");
+      }
+      // console.log("Hanlde")
+      const orderUrl = "http://localhost:5000/api/pay/orders";
+      const { data } = await axios.post(
+        orderUrl,
+        { amount: cost },
+        {
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT, DELETE',
+            'Access-Control-Allow-Headers': 'Content-Type, X-Auth-Token, Origin, Authorization',
+          },
+        }
+      );
+      console.log("2nd")
+      console.log(data);
+      initPayment(data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const initPayment = (data) => {
+    console.log("In init")
+    const options = {
+      key: "rzp_test_zkRk5Km3mrtYWp",
+      amount: data.amount,
+      currency: data.currency,
+      description: "Test Transaction",
+      order_id: data.id,
+      handler: async (response) => {
+        try {
+          const verifyUrl = "http://localhost:5000/payment/verify";
+          const { data } = await axios.post(verifyUrl, response, {
+            headers: {
+              'Access-Control-Allow-Origin': '*',
+              'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT, DELETE',
+              'Access-Control-Allow-Headers': 'Content-Type, X-Auth-Token, Origin, Authorization',
+            },
+          });
+          console.log(data);
+          if (data.status) {
+            alert("Purchased PrepPro Succesfully");
+            //Update in DB
+            //fetch user id
+            // userDetails(); 
+
+            // navigate("") --> to a page to show order and pay id 
+            navigate("/user/appointments")
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      },
+      theme: {
+        color: "#3399cc",
+      },
+    };
+
+    console.log(options)
+    const rzp1 = new window.Razorpay(options);
+
+
+    rzp1.open();
+    bookAppointment();
   };
 
   const bookAppointment = async () => {
@@ -64,7 +141,7 @@ const Professional = (props) => {
             "Content-Type": "application/json",
             "auth-token": localStorage.getItem("token")
           },
-          body: JSON.stringify({ timing: selectedTime, appointmentDate: date.toUTCString() })
+          body: JSON.stringify({ timing: selectedTime, appointmentDate: date.toUTCString(), bookingStatus: 'Future Appointment', paymentStatus: 'Paid' })
         }
       );
       const json = await response.json();
@@ -158,7 +235,7 @@ const Professional = (props) => {
                   ))}
                 </div>
               ))}
-              <button onClick={bookAppointment} className="btn btn-success">Book Appointment</button>
+              <button onClick={handlePayment} className="btn btn-success">Book Appointment</button>
 
             </div>
           </div>

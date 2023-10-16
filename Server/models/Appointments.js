@@ -53,7 +53,11 @@ const AppointmentSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    status: {
+    bookingStatus: {
+        type: String,
+        required: true
+    },
+    paymentStatus: {
         type: String,
         required: true
     }
