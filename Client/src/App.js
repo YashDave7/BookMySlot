@@ -13,6 +13,7 @@ import '../src/App.css'
 import React, { useState } from 'react';
 import Professional from './Pages/Professional-Page-templete/Professional';
 import UserAppointments from './Pages/User-Appointments-Page/UserAppointments';
+import NotificationPage from './Pages/Notifications-User/NotificationPage';
 function App() {
 
   const [profId, setProfId] = useState('');
@@ -33,7 +34,7 @@ function App() {
           <Route exact path='/user/appointments' element={<UserAppointments />} />
           <Route exact path='/user/professional/:id' element={<Professional profId={profId} />} />
 
-          
+          <Route exact path='/notifications' element={<NotificationPage />} />
           <Route exact path='/professional/register' element={<ProfessionalLogin />} />
           <Route exact path='/professional/home' element={<ProfessionalHomePage />} />
         </Routes>

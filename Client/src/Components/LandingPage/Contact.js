@@ -18,12 +18,14 @@ const Contact = () => {
                     <textarea className='form-control' placeholder="Enter Your Message" style={{height: 150}}/>
                 </div>
 
-                <button className="w-100 btn btn-lg btn-primary" type="submit" style={{backgroundColor: '#9AA4EC', border: '1px solid black', fontWeight: 700}}>Send Message</button>
+                <button className="w-100 btn btn-lg btn-primary" type="submit" style={{backgroundColor: '#9AA4EC', border: '1px solid #9aa4ec', fontWeight: 700}}>Send Message</button>
                 </form>
             </div>
             <div className="col-lg-6 text-center text-lg-start">
                 <img src={Contact_img} alt='contactUs' width={500}/>
-                <h1 className="display-4 fw-bold lh-1 text-body-emphasis mb-3">Contact Us</h1>
+                <h1 className="display-5" style={{ fontSize: '4 rem', fontWeight: 'bolder', color: '#6b74b8' }}>
+  Contact Us
+</h1>
             </div>
             </div>
         </div>

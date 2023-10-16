@@ -15,8 +15,8 @@ const Footer = () => {
 
           <div className="col mb-3">
             <h5>Section</h5>
-            <ul className="nav flex-column">
-              <li className="nav-item mb-2">
+            <ul className="nav flex-column" style={{ listStyle: 'none', padding: 0 ,  }}>
+              <li className="nav-item mb-2" >
                 <a href="#" className="nav-link p-0 text-body-secondary">
                   Home
                 </a>
