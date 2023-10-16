@@ -16,11 +16,11 @@ router.post('/bookappointment/:id', fetchUser, async (req, res) => {
         // console.log(auth-token);
         userid = req.user.id;
         const user = await User.findById(userid).select("-password");
-        
+        console.log(userid);
         professionalid = req.params.id;
         const professional = await Professionals.findById(professionalid).select("-password");
-        
-        const { timing } = req.body;
+        console.log(professionalid);
+        // const { timing, appointmentDate } = req.body;
 
         booking = await Appointments.create({
             userid: user.id,
@@ -33,12 +33,13 @@ router.post('/bookappointment/:id', fetchUser, async (req, res) => {
             professionalmobile: professional.mobile,
             professionalprofession: professional.profession,
             professionalspecialisation: professional.specialisation,
+            appointmentDate: req.body.appointmentDate,
             timing: req.body.timing,
             status: "Pending"
         })
         res.send(booking);
     } catch (error) {
-        console.log(error.message);
+        console.log(error.message, "Hlloo");
         toast.error('Internal Server Error');
         res.status(500).send("Some Error Occured");
     }

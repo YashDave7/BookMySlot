@@ -11,8 +11,8 @@ import user_img from "../../Pages/User-Home-Page/images/reshma.png";
 const ProfessionalHomePage = () => {
 
   const [appointments, setAppointments] = useState([]);
-  const [professionalDetails, setProfessionalDetails] = useState('');
   const [filteredAppointments, setFilteredAppointments] = useState([]);
+  const [professionalDetails, setProfessionalDetails] = useState('');
   const [date, setDate] = useState(new Date());
 
   // API CALL TO FETCH ALL THE APPOINTMENTS.
@@ -86,8 +86,11 @@ const ProfessionalHomePage = () => {
 
   useEffect(() => {
     // Filter appointments based on selected date
-    const filtered = appointments.filter(appointment => new Date(appointment.date).toDateString() === date.toDateString());
+    const filtered = appointments.filter(appointment => new Date(appointment.appointmentDate).toDateString() === date.toDateString());
     setFilteredAppointments(filtered);
+    console.log(date.toDateString());
+    console.log(appointments);
+    console.log(filtered);
   }, [date, appointments]);
 
   const onChange = date => {

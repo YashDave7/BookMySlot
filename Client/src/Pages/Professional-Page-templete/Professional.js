@@ -1,16 +1,29 @@
 import React, { useState, useEffect } from "react";
-import MyCalendar from "../Professional-Home-Page/MyCalendar";
-// import { Link, useNavigate } from 'react-router-dom';
-// import { isHtmlElement } from 'react-router-dom/dist/dom';
+// import MyCalendar from './MyCalendar';
+import Calendar from 'react-calendar';
+import './style/MyCalendar.css';
 
 const Professional = (props) => {
   // let navigate = useNavigate();
-  const [professional, setProfessional] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const profID = props.profId;
+  const [professional, setProfessional] = useState({});
+  const [date, setDate] = useState(new Date());
+  const [selectedTime, setSelectedTime] = useState('');
+  const [timeSlots, setTimeSlots] = useState([]);
+  const [filteredTimeSlots, setFilteredTimeSlots] = useState([]);
 
+  // const profID = props.profId;
+
+  // API CALL TO FETCH DATA OF THE SELECTED PROFESSIONAL.
   const particularProfessional = async () => {
     try {
+      // Extract profID from the URL
+      const url = new URL(window.location.href);
+      const profID = url.pathname.split('/').pop();
+      if (!profID) {
+        // Handle the case where profID is not defined properly
+        throw new Error('profID is not defined');
+      }
+      // console.log(profID);
       // API call.
       const response = await fetch(
         `http://localhost:5000/api/authProfessional/particularProfessional/${profID}`,
@@ -22,30 +35,47 @@ const Professional = (props) => {
         }
       );
       const json = await response.json();
-      console.log(json);
       setProfessional(json);
-      setLoading(false);
+      setTimeSlots(json.yearlyTimings);
     } catch (error) {
-      setLoading(false);
     }
   };
 
   const bookAppointment = async () => {
-    // API call.
-    const response = await fetch(
-      `http://localhost:5000/api/booking/bookappointment/${props.profId}`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "auth-token": localStorage.getItem("token"),
-        },
+    try {
+      // Extract profID from the URL
+      const url = new URL(window.location.href);
+      const profID = url.pathname.split('/').pop();
+      if (!profID) {
+        throw new Error('profID is not defined');
       }
-    );
-    const json = await response.json();
-    console.log(json);
-    setProfessional(json);
+
+      // Make sure selectedTime and date are defined
+      if (!selectedTime || !date) {
+        throw new Error('selectedTime or date is not defined');
+      }
+
+      // API call.
+      const response = await fetch(
+        `http://localhost:5000/api/booking/bookappointment/${profID}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "auth-token": localStorage.getItem("token")
+          },
+          body: JSON.stringify({ timing: selectedTime, appointmentDate: date.toUTCString() })
+        }
+      );
+      const json = await response.json();
+      console.log(json);
+      // setProfessional(json);
+    } catch (error) {
+      console.log(error);
+      // Handle the error
+    }
   };
+
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -54,29 +84,28 @@ const Professional = (props) => {
     } else {
       navigate("/user/login");
     }
-  }, [props.profId]);
+  }, []);
 
-  //time slot
-  const [selectedTimeSlots, setSelectedTimeSlots] = useState([]);
 
-  // Define your time slots as an array
-  const timeSlots = [
-    "10:00 AM - 11:00 AM",
-    "11:00 AM - 12:00 PM",
-    "12:00 PM - 01:00 PM",
-    // Add more time slots here...
-  ];
+
+  useEffect(() => {
+    // Filter appointments based on selected date
+    const filtered = timeSlots.filter(timeslot => new Date(timeslot.day).toDateString() === date.toDateString());
+    setFilteredTimeSlots(filtered);
+    // console.log(timeSlots, "ehlloo");
+    // console.log(filtered);
+  }, [date, timeSlots, selectedTime]);
 
   const handleTimeSlotClick = (timeSlot) => {
-    // Check if the time slot is already selected
-    if (selectedTimeSlots.includes(timeSlot)) {
-      setSelectedTimeSlots(
-        selectedTimeSlots.filter((slot) => slot !== timeSlot)
-      );
-    } else {
-      setSelectedTimeSlots([...selectedTimeSlots, timeSlot]);
-    }
+    setSelectedTime(timeSlot);
+    console.log(selectedTime);
+    console.log(date);
   };
+
+  const onChange = date => {
+    setDate(date);
+  };
+
   return (
     <>
       {/* <div>
@@ -92,7 +121,10 @@ const Professional = (props) => {
             profile
           </div>
           <div className="col-4" style={{ border: "2px solid red" }}>
-            <MyCalendar />
+            <Calendar
+              onChange={onChange}
+              value={date}
+            />
           </div>
 
           {/* <!-- Force next columns to break to new line at md breakpoint and up --> */}
@@ -104,25 +136,29 @@ const Professional = (props) => {
           <div className="col-4" style={{ border: "2px solid red" }}>
             <h3>Available Slots</h3>
             <div className="container">
-              {timeSlots.map((timeSlot, index) => (
+              {filteredTimeSlots.map((slot, index) => (
                 <div key={index} className="col-md-4">
-                  <button
-                    style={{
-                      backgroundColor: selectedTimeSlots.includes(timeSlot)
-                        ? "#9AA4EC"
-                        : "transparent",
-                      color: selectedTimeSlots.includes(timeSlot)
-                        ? "white"
-                        : "black",
-                    }}
-                    className="btn time-slot my-2"
-                    onClick={() => handleTimeSlotClick(timeSlot)}
-                  >
-                    {timeSlot}
-                  </button>
+                  {slot.timeslots.map((eachSlot, i) => (
+                    <div key={i}>
+                      <button
+                        style={{
+                          // backgroundColor: selectedTimeSlots.includes(timeFrame)
+                          //   ? "#9AA4EC"
+                          //   : "transparent",
+                          // color: selectedTimeSlots.includes(timeFrame)
+                          //   ? "white"
+                          //   : "black",
+                        }}
+                        className="btn time-slot my-2"
+                        onClick={() => handleTimeSlotClick(eachSlot.timeFrame)}
+                      >
+                        {eachSlot.timeFrame}
+                      </button>
+                    </div>
+                  ))}
                 </div>
               ))}
-                <button className="btn btn-success">Book My Slot</button>
+              <button onClick={bookAppointment} className="btn btn-success">Book Appointment</button>
 
             </div>
           </div>

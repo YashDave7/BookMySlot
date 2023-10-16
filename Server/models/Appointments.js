@@ -40,7 +40,10 @@ const AppointmentSchema = new Schema({
     },
     professionalspecialisation: {
         type: String,
-        required: true
+        required: true  
+    },
+    appointmentDate: {
+        type: String,
     },
     timing: {
         type: String,

@@ -181,6 +181,12 @@ const UserHomePage = ({ setProfId }) => {
 
       <div className="container-fluid no-padding">
         <div className="row">
+          <div className="filters">
+              <button className="btn text-white py-2" style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid black' }}>Location</button>
+              <button className="btn text-white py-2" style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid black' }}>Search</button>
+              <button className="btn text-white py-2" style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid black' }}>Ratings 4+</button>
+              <button className="btn text-white py-2" style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid black' }}>Professional</button>
+          </div>
           <div
             className="col-12 px-5"
             style={{ border: "2px solid red", height: "20vh" }}
