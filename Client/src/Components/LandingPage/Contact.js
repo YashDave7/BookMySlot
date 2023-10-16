@@ -23,7 +23,7 @@ const Contact = () => {
             </div>
             <div className="col-lg-6 text-center text-lg-start">
                 <img src={Contact_img} alt='contactUs' width={500}/>
-                <h1 className="display-5" style={{ fontSize: '4 rem', fontWeight: 'bolder', color: '#6b74b8' }}>
+                <h1 className="display-5" style={{ fontSize: '4 rem', fontWeight: 'bolder', color: 'black' }}>
   Contact Us
 </h1>
             </div>

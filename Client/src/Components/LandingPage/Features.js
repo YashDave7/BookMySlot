@@ -9,8 +9,8 @@ const Features = () => {
           <div className="container">
             <div className="row justify-content-md-center">
               <div className="col-12 col-md-10 col-lg-8 col-xl-7">
-                <h3 className="fs-6 mb-2 text-center text-uppercase" style={{ fontSize: '4rem', fontWeight: 'bolder', color: '#6b74b8' }}>
-                  What We Do?
+                <h3 className="fs-6 mb-2 text-center text-uppercase" style={{ fontSize: '4rem', fontWeight: 'bolder', color: 'black' }}>
+                  Who are we?
                 </h3>
 
                 {/* <h1 className="display-5" style={{ fontSize: '4rem', fontWeight: 'bolder', color: '#6b74b8' }}>
@@ -27,7 +27,7 @@ const Features = () => {
           <div className="container overflow-hidden">
             <div className="row gy-4 gy-xl-0">
               <div className="col-12 col-sm-6 col-xl-3">
-                <div className="card border-0 border-bottom border-primary shadow-sm"  style={{height: '60vh', backgroundColor: '#d4d9f7'}}>
+              <div className="card   shadow-sm"  style={{height: '60vh', border: '2px solid #9AA4EC'}}>
                   <div className="card-body text-center p-4 p-xxl-5">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -70,7 +70,7 @@ const Features = () => {
                 </div>
               </div>
               <div className="col-12 col-sm-6 col-xl-3">
-                <div className="card border-0 border-bottom border-primary shadow-sm" style={{height: '60vh', backgroundColor: '#d4d9f7'}}>
+              <div className="card   shadow-sm"  style={{height: '60vh', border: '2px solid #9AA4EC'}}>
                   <div className="card-body text-center p-4 p-xxl-5">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -115,7 +115,7 @@ const Features = () => {
                 </div>
               </div>
               <div className="col-12 col-sm-6 col-xl-3">
-                <div className="card border-0 border-bottom border-primary shadow-sm" style={{height: '60vh', backgroundColor: '#d4d9f7'}}>
+              <div className="card   shadow-sm"  style={{height: '60vh', border: '2px solid #9AA4EC'}}>
                   <div className="card-body text-center p-4 p-xxl-5">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -158,7 +158,7 @@ const Features = () => {
                 </div>
               </div>
               <div className="col-12 col-sm-6 col-xl-3">
-                <div className="card border-0 border-bottom border-primary shadow-sm" style={{height: '60vh', backgroundColor: '#d4d9f7'}}>
+              <div className="card   shadow-sm"  style={{height: '60vh', border: '2px solid #9AA4EC'}}>
                   <div className="card-body text-center p-4 p-xxl-5">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

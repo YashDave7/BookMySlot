@@ -13,7 +13,7 @@ const About = () => {
             <div className="col-12 col-lg-6 col-xl-7">
                 <div className="row justify-content-xl-center">
                 <div className="col-12 col-xl-11">
-                <h2 className="fs-6 mb-2 text-center " style={{ fontSize: '4rem', fontWeight: 'bolder', color: '#6b74b8' }}>
+                <h2 className="fs-6 mb-2 text-center " style={{ fontSize: '4rem', fontWeight: 'bolder', color: 'black' }}>
                   What We Do?
                 </h2>
                     <p className="lead fs-4 text-secondary mb-3">Streamlining connections between clients and professionals for effortless appointment management. Join our community for easy bookings and stress-free scheduling.</p>

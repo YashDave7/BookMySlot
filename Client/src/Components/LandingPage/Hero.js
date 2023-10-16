@@ -1,16 +1,16 @@
 import React from 'react'
-import Hero_img from '../../Pages/Landing-Page/Images/Hero.png';
+import Hero_img from './image-16.png';
 
 const Hero = () => {
   return (
     <div>
         <div className="container col-xxl-8 px-2 py-5">
             <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
-            <div className="col-10 col-sm-8 col-lg-6">
-                <img src={Hero_img} className="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy"/>
+            <div className="col-10 col-sm-8 col-lg-6" style={{width:"900", height:"700"  }}>
+                <img src={Hero_img} className="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="900" height="500" loading="lazy"/>
             </div>
             <div className="col-lg-6">
-            <h1 className="display-5" style={{ fontSize: '4rem', fontWeight: 'bolder', color: '#6b74b8' }}>
+            <h1 className="display-5" style={{ fontSize: '4rem', fontWeight: 'bolder', color: 'black' }}>
   Your Path to Hassle-free Appointments Starts Here!
 </h1>
 <br />
