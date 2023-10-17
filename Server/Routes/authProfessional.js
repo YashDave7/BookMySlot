@@ -157,10 +157,10 @@ router.post('/createprofessional', [
     body('city', 'Enter your city').exists(),
     body('password', 'Enter a 8 character password').isLength({ min: 8 }),
     body('fees', 'Enter your average fees').exists(),
-    body('yearlyTimings', 'Enter your timing operation').isArray(), // Validate that 'yearlyTimings' is an array
-    body('yearlyTimings.*.day', 'Enter a valid day').exists(), // Validate each day in yearlyTimings
-    body('yearlyTimings.*.timeslots', 'Enter a valid time slots array').isArray(), // Validate each timeslots array in yearlyTimings
-    body('yearlyTimings.*.timeslots.*.timeFrame', 'Enter a valid time frame').exists() // Validate each timeFrame in each timeslots array
+    // body('yearlyTimings', 'Enter your timing operation').isArray(), // Validate that 'yearlyTimings' is an array
+    // body('yearlyTimings.*.day', 'Enter a valid day').exists(), // Validate each day in yearlyTimings
+    // body('yearlyTimings.*.timeslots', 'Enter a valid time slots array').isArray(), // Validate each timeslots array in yearlyTimings
+    // body('yearlyTimings.*.timeslots.*.timeFrame', 'Enter a valid time frame').exists() // Validate each timeFrame in each timeslots array
 ], async (req, res) => {
     // If there are errors, return the bad request and the errors.
     const errors = validationResult(req);
@@ -180,6 +180,22 @@ router.post('/createprofessional', [
         const salt = await bcrypt.genSalt();
         const securePassword = await bcrypt.hash(req.body.password, salt);
 
+        // Function to generate half-hour time slots from 9 am to 5 pm with dates for one month
+        // Function to generate half-hour time slots from 9 am to 5 pm with dates for one month
+        const generateTimeSlots = () => {
+            const slots = [];
+            for (let i = 9; i < 17; i++) {
+                slots.push(`${i.toString().padStart(2, '0')}:00 - ${i.toString().padStart(2, '0')}:30`);
+                slots.push(`${i.toString().padStart(2, '0')}:30 - ${(i + 1).toString().padStart(2, '0')}:00`);
+            }
+            return slots;
+        };
+
+
+
+        const defaultYearlyTimings = generateTimeSlots().map(timeSlot => ({ timeFrame: timeSlot }));
+
+
         // Adding professional to the Database.
         professional = await Professionals.create({
             name: req.body.name,
@@ -193,7 +209,7 @@ router.post('/createprofessional', [
             city: req.body.city,
             password: securePassword,
             fees: req.body.fees,
-            yearlyTimings: req.body.yearlyTimings
+            yearlyTimings: defaultYearlyTimings
         });
 
         const data = {
