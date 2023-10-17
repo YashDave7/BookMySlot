@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import profimg from "./proffesional.png"
+import profimg from "./meeting.jpg"
 // import './UserLoginSignin.css';
 
 const ProfessionalLogin = () => {
