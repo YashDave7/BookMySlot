@@ -2,11 +2,8 @@ import React, { useState, useEffect } from "react";
 // import MyCalendar from './MyCalendar';
 import Calendar from 'react-calendar';
 import './style/MyCalendar.css';
-<<<<<<< HEAD
 import user_img from '../../Pages/User-Home-Page/images/reshma.png';
-=======
-import axios from "axios"
->>>>>>> a2ada66b715f1f10e60901a7e531b4ea42983685
+import axios from 'axios';
 
 const Professional = (props) => {
   // let navigate = useNavigate();
