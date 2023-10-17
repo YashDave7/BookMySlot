@@ -8,7 +8,9 @@ const ProfDasboard = () => {
         <ul>
           <li>Dashboard</li>
           <li>Appointments</li>
-          <li>Patients</li>
+          <li>Finance</li>
+          <li>Notifications</li>
+          <li>Logout</li>
         </ul>
       </nav>
     </div>

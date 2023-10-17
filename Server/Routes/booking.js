@@ -35,7 +35,8 @@ router.post('/bookappointment/:id', fetchUser, async (req, res) => {
             professionalspecialisation: professional.specialisation,
             appointmentDate: req.body.appointmentDate,
             timing: req.body.timing,
-            status: "Pending"
+            bookingStatus: "Pending",
+            paymentStatus: req.body.paymentStatus
         })
         res.send(booking);
     } catch (error) {

@@ -101,7 +101,7 @@ const ProfessionalHomePage = () => {
     <>
       <div className='container-fluid no-padding'>
         <div className='row'>
-          <div className='side_bar col-2'>
+          <div className='side_bar col-2' >
             <ProfDashboard />
           </div>
           <div className='col-10'>
@@ -138,7 +138,7 @@ const ProfessionalHomePage = () => {
                                     className="px-2 py-2 text-white mr-3"
                                     style={{ backgroundColor: "#F4A4A4", borderRadius: "7px" }}
                                   >
-                                    10AM to 11AM
+                                    {item.timing}
                                   </span>
 
 
@@ -154,7 +154,7 @@ const ProfessionalHomePage = () => {
                                       marginRight: "10px"
                                     }}
                                   >
-                                    Completed
+                                    {item.bookingStatus}
                                   </button>
                                   <button
                                     className="btn text-white py-2"
@@ -178,7 +178,7 @@ const ProfessionalHomePage = () => {
                                   border: "1px solid black",
                                 }}
                               >
-                                Review
+                                {item.paymentStatus}
                               </button>
                             </div>
                           </div>

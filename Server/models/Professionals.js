@@ -133,7 +133,7 @@ const ProfessionalSchema = new Schema({
         required: true
     },
     fees: {
-        type: String,
+        type: Number,
         required: true
     },
     yearlyTimings: [TimingsSchema],
