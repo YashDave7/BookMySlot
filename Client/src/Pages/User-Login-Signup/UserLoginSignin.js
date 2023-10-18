@@ -106,7 +106,7 @@ const UserLoginSignin = () => {
                 </div>
                 <div className='login-page-image'>
                     <div>
-                    <img  className='calender-img' src={calimg}></img>
+                    <img  className='calender-img ml-5 pl-5' src={calimg} height={"530px"}></img>
                     </div>
                 {showLogin && (
                 <div id="login-form">
