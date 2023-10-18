@@ -8,9 +8,9 @@ function SideMenu() {
         <nav className="SideMenu">
       
       <ul>
-        <li>Dashboard</li>
-        <li>Appointments</li>
-        <li>Patients</li>
+      <Link className="nav-link" to="/professional/home">Appointments</Link>
+      <Link className="nav-link" to="/professional/finance">Finance</Link>
+        {/* <li>Patients</li> */}
       
       </ul>
     </nav>
