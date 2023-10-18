@@ -10,17 +10,17 @@ const router = express.Router();
 
 router.post('/createprofessional', [
     // Validations Using express-validator.
-    body('name', 'Enter a valid Name').isLength({ min: 2 }),
-    body('email', 'Enter a valid Email').isEmail(),
-    body('mobile', 'Enter a valid 10 digit Contact No').isLength({ min: 10 }),
-    body('profession', 'Enter any one of the given Professions').exists(),
-    body('specialisation', 'Enter any one of the given Specialisation').exists(),
-    body('age', 'Enter your age').exists(),
-    body('gender', 'Enter your gender').exists(),
-    body('address', 'Enter your address').exists(),
-    body('city', 'Enter your city').exists(),
-    body('password', 'Enter a 8 character password').isLength({ min: 8 }),
-    body('fees', 'Enter your average fees').exists(),
+    // body('name', 'Enter a valid Name').isLength({ min: 2 }),
+    // body('email', 'Enter a valid Email').isEmail(),
+    // body('mobile', 'Enter a valid 10 digit Contact No').isLength({ min: 10 }),
+    // body('profession', 'Enter any one of the given Professions').exists(),
+    // body('specialisation', 'Enter any one of the given Specialisation').exists(),
+    // body('age', 'Enter your age').exists(),
+    // body('gender', 'Enter your gender').exists(),
+    // body('address', 'Enter your address').exists(),
+    // body('city', 'Enter your city').exists(),
+    // body('password', 'Enter a 8 character password').isLength({ min: 8 }),
+    // body('fees', 'Enter your average fees').exists(),
     // body('yearlyTimings', 'Enter your timing operation').isArray(), // Validate that 'yearlyTimings' is an array
     // body('yearlyTimings.*.day', 'Enter a valid day').exists(), // Validate each day in yearlyTimings
     // body('yearlyTimings.*.timeslots', 'Enter a valid time slots array').isArray(), // Validate each timeslots array in yearlyTimings
@@ -73,7 +73,7 @@ router.post('/createprofessional', [
             city: req.body.city,
             password: securePassword,
             fees: req.body.fees,
-            yearlyTimings: defaultYearlyTimings
+            // yearlyTimings: defaultYearlyTimings
         });
 
         const data = {
