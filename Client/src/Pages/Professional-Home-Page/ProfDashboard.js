@@ -6,18 +6,18 @@ const ProfDasboard = () => {
   return (
     <div>
       <nav className="SideMenu">
-        <ul>
+        <ul style={{textDecoration: 'none'}}>
           <li>
-            <Link className="nav-link" to="/professional/home">Appointments</Link>
+            <Link className="nav-link" to="/professional/home" style={{textDecoration: 'none', color:'black'}}>Appointments</Link>
           </li>
           <li>
-            <Link className="nav-link" to="/professional/finance">Finance</Link>
+            <Link className="nav-link" to="/professional/finance" style={{textDecoration: 'none', color:'black'}}>Finance</Link>
           </li>
           <li>
-            <Link className="nav-link" to="/professional/home">Notifications</Link>
+            <Link className="nav-link" to="/professional/home" style={{textDecoration: 'none', color:'black'}}>Notifications</Link>
           </li>
           <li>
-            <Link className="nav-link" to="/professional/home">LogOut</Link>
+            <Link className="nav-link" to="/professional/home" style={{textDecoration: 'none', color:'black'}}>LogOut</Link>
           </li>
           
           

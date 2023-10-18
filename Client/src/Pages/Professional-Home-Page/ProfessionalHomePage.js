@@ -107,7 +107,7 @@ const ProfessionalHomePage = () => {
      
         <div className='row'>
          
-          <div className='side_bar col-2' style={{backgroundColor:'#f3cccc'}} >
+          <div className='side_bar col-2' style={{backgroundColor:' #ffecec'}} >
             <ProfDashboard />
           </div>
           <div className='col-10'>
