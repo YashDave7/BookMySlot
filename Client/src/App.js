@@ -44,7 +44,7 @@ function App() {
           <Route exact path='/admin' element={<Admin />} />
         </Routes>
 
-        {/* <Footer /> */}
+        <Footer />
       </Router>
 
     </>
