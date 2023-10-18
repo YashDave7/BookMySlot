@@ -101,20 +101,20 @@ const ProfessionalHomePage = () => {
     <>
       <div className='container-fluid no-padding'>
         <div className='row'>
-          <div className='side_bar col-2' >
+          <div className='side_bar col-2' style={{backgroundColor:'#f89686'}} >
             <ProfDashboard />
           </div>
           <div className='col-10'>
             <div className="container-fluid no-padding">
               <div className="row">
-                <div className="col-12" style={{ border: "2px solid red", height: '15vh' }}>
-                  <div className="message">
+                <div className="col-12" style={{padding:"20px"}} >
+                  <div className="message" style={{paddingTop:'10px'}}>
                     {/* <img src={doctor} /> */}
                     <h1>Hello, {professionalDetails.name}</h1> 
                     <p>You have {filteredAppointments.length} appointments today.</p>
                   </div>
                 </div>
-                <div className="col-8" style={{ border: "2px solid red" }}>
+                <div className="col-8" style={{padding:'10px'}}>
                   {/* <TodaysAppointmets/> */}
                   <div>
                     <h2 className="py-3"> {date.toDateString()} Appointments</h2>
@@ -187,7 +187,7 @@ const ProfessionalHomePage = () => {
                     </div>
                   </div>
                 </div>
-                <div className="col-4" style={{ border: "2px solid red" }}>
+                <div className="col-4" style={{padding:'10px'}}>
                   <div className="Calendar">
                     <h1>Calendar</h1>
                     <Calendar
