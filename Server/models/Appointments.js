@@ -65,10 +65,10 @@ const AppointmentSchema = new Schema({
         type: Number,
         required: true
     },
-    timing: {
-        type: Date,
-        Default: Date.now
-    }
+    // paymentTiming: {
+    //     type: Date,
+    //     Default: Date.now
+    // }
 });
 
 module.exports = mongoose.model('appointment',AppointmentSchema);
