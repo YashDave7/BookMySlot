@@ -2,6 +2,8 @@ import React from 'react'
 import ProfDashboard from './ProfDashboard';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import ProfessionalNavbar from '../Professional-Home-Page/ProfessionalNavbar';
+import ProfessionalFooter from '../Professional-Home-Page/ProfessionalFooter';
 
 const Finance = () => {
   const [appointments, setAppointments] = useState([]);
@@ -19,11 +21,16 @@ const Finance = () => {
     });
     const json = await response.json();
 
+
     // Summing all paymentAmount values
-    let totalAmount = 0;
-    json.forEach(item => {
-      totalAmount += item.paymentAmount;
-    });
+let totalAmount = 0;
+json.forEach(item => {
+  const parsedAmount = parseFloat(item.paymentAmount);
+  if (!isNaN(parsedAmount)) {
+    totalAmount += parsedAmount;
+  }
+});
+
 
     setTotalEarning(totalAmount); 
 
@@ -36,6 +43,7 @@ const Finance = () => {
 
   return (
     <>
+    <ProfessionalNavbar />
       <div className='row'>
         <div className='side_bar col-2' style={{ backgroundColor: '#f89686' }} >
           <ProfDashboard />
@@ -49,8 +57,8 @@ const Finance = () => {
                   <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z" />
                 </svg>
                 <p className="card-text">Your Daily Earnings:</p>
-                <h3 className='card-text'>{totalEarning}</h3>
-                <a href="#" className="btn text-white" style={{ backgroundColor: '#D83A22' }}>Analyze</a>
+                <h3 className='card-text'>₹{totalEarning}</h3>
+                {/* <a href="#" className="btn text-white" style={{ backgroundColor: '#D83A22' }}>Analyze</a> */}
               </div>
             </div>
             <div className="card text-center mb-3 mx-3" >
@@ -59,8 +67,8 @@ const Finance = () => {
                   <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z" />
                 </svg>
                 <p className="card-text">Your Weekly Earnings:</p>
-                <h3 className='card-text'>3000 Rs.</h3>
-                <a href="#" className="btn text-white" style={{ backgroundColor: '#D83A22' }}>Analyze</a>
+                <h3 className='card-text'>₹{totalEarning}</h3>
+                {/* <a href="#" className="btn text-white" style={{ backgroundColor: '#D83A22' }}>Analyze</a> */}
               </div>
             </div>
             <div className="card text-center mb-3 mx-3" >
@@ -69,8 +77,8 @@ const Finance = () => {
                   <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z" />
                 </svg>
                 <p className="card-text">Your Monthly Earnings:</p>
-                <h3 className='card-text'>3000 Rs.</h3>
-                <a href="#" className="btn text-white" style={{ backgroundColor: '#D83A22' }}>Analyze</a>
+                <h3 className='card-text'>₹{totalEarning}</h3>
+                {/* <a href="#" className="btn text-white" style={{ backgroundColor: '#D83A22' }}>Analyze</a> */}
               </div>
             </div>
           </div>
@@ -109,6 +117,7 @@ const Finance = () => {
           ))}
         </div>
       </div>
+      <ProfessionalFooter/>
     </>
   )
 }

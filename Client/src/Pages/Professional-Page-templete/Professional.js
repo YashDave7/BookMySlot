@@ -4,6 +4,8 @@ import Calendar from 'react-calendar';
 import './style/MyCalendar.css';
 import user_img from '../../Pages/User-Home-Page/images/reshma.png';
 import axios from 'axios';
+import Navbar from "../../Components/Navbar/Navbar";
+import Footer from "../../Components/Footer/Footer";
 
 const Professional = (props) => {
   // let navigate = useNavigate();
@@ -263,6 +265,7 @@ const Professional = (props) => {
 
   return (
     <>
+    <Navbar/>
       {/* <div>
         Heoooooollllo
         {professional.name},
@@ -348,7 +351,6 @@ const Professional = (props) => {
 
                         <p className="card-text">
                           {item.review}
-                          console.log({item.review});
                         </p>
 
                       </div>
@@ -420,6 +422,7 @@ const Professional = (props) => {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };

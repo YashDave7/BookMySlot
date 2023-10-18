@@ -1,5 +1,6 @@
 import React from 'react'
 import Hero_img from './image-16.png';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
@@ -16,8 +17,12 @@ const Hero = () => {
 <br />
                 <p className="lead text-secondary">Connecting Clients and Professionals. Streamlined scheduling and enhanced visibility for seamless collaboration.</p>
                 <div className="d-grid gap-2 d-md-flex justify-content-md-start">
-                    <button type="button" className="btn btn-lg px-4 me-md-2 text-white" style={{backgroundColor: '#9AA4EC', border: '1px solid #9AA4EC ', fontWeight: 700}}>User Login</button>
-                    <button type="button" className="btn btn-lg px-4 mx-4 text-white" style={{backgroundColor: '#9AA4EC', border: '1px solid #9AA4EC', fontWeight: 700}}>Admin Login</button>
+                    <button type="button" className="btn btn-lg px-4 me-md-2 text-white" style={{backgroundColor: '#9AA4EC', border: '1px solid #9AA4EC ', fontWeight: 700}}>
+                    <Link className="text-white nav-link" to="/user/login">User Login</Link>
+                      </button>
+                    <button type="button" className="btn btn-lg px-4 mx-4 text-white" style={{backgroundColor: '#9AA4EC', border: '1px solid #9AA4EC', fontWeight: 700}}>
+                    <Link className="text-white nav-link" to="/professional/register">Professional Login</Link>
+                      </button>
                 </div>
             </div>
             </div>

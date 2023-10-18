@@ -4,6 +4,8 @@ import user_img from '../../Pages/User-Home-Page/images/reshma.png'
 import "./card.css";
 import banner from "./images/banner-doctor.jpg"
 import ad from "./images/ad-counsellor.jpg"
+import Navbar from "../../Components/Navbar/Navbar";
+import Footer from "../../Components/Footer/Footer";
 
 const UserHomePage = ({ setProfId }) => {
   let navigate = useNavigate();
@@ -117,6 +119,7 @@ const UserHomePage = ({ setProfId }) => {
 
   return (
     <>
+    <Navbar/>
       {/* <div className="ad">
         Advertisement
       </div>
@@ -183,17 +186,21 @@ const UserHomePage = ({ setProfId }) => {
 
       <div className="container-fluid no-padding">
         <div className="row">
-          <div className="filters" >
+          <div className="mx-5 filters" >
+             <form className="form-inline my-2 my-lg-0">
+                        <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+                        {/* <button className="btn custom-btn my-2 my-sm-0" type="submit">Search</button> */}
+             <div className="fil-btn"><button className="btn text-white py-2" style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid #9aa4ec'}}>Ratings 4+</button></div> 
+                    </form>
              <div className="fil-btn"><button className="btn text-white py-2" style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid #9aa4ec' }}>Location</button></div> 
              <div className="fil-btn"><button className="btn text-white py-2" style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid #9aa4ec' }}>Search</button></div> 
-             <div className="fil-btn"><button className="btn text-white py-2" style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid #9aa4ec'}}>Ratings 4+</button></div> 
              <div className="fil-btn"><button className="btn text-white py-2" style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid #9aa4ec' }}>Professional</button></div> 
           </div>
           <div
             className="col-12 px-5"
             
           >
-            <img className="banner-img" src={banner}></img>
+            <img style={{height: '15vh'}} className="banner-img" src={banner}></img>
           </div>
 
           <div className="col-9 px-5" >
@@ -369,6 +376,7 @@ const UserHomePage = ({ setProfId }) => {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };
