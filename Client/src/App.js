@@ -23,7 +23,7 @@ function App() {
   return (
     <>
       <Router>
-        <Navbar />
+        {/* <Navbar /> */}
         <ToastNotifications />
         <Routes>
           {/* <Route path="/doctordashboard" element={<DoctorDashboard/>} /> */}
@@ -42,7 +42,7 @@ function App() {
           <Route exact path='/professional/finance' element={<Finance />} />
         </Routes>
 
-        <Footer />
+        {/* <Footer /> */}
       </Router>
 
     </>

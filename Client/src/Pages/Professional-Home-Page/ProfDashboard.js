@@ -13,14 +13,20 @@ const ProfDasboard = () => {
           <li>
             <Link className="nav-link" to="/professional/finance">Finance</Link>
           </li>
-          <li>Notifications</li>
-          <li>Logout</li>
+          <li>
+            <Link className="nav-link" to="/professional/home">Notifications</Link>
+          </li>
+          <li>
+            <Link className="nav-link" to="/professional/home">LogOut</Link>
+          </li>
+          
+          
           <li></li>
           <li></li>
           <li></li>
           <li></li>
-          <li></li>
-          <li></li>
+          
+          
         </ul>
       </nav>
     </div>

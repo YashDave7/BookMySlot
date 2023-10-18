@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 export default function Navbar(props) {
     return (
         <>
-            <nav className="navbar navbar-expand-lg navbar-light border" style={{backgroundColor: '#ff4d4d', padding: '10px 50px', fontWeight: 700}}>
-                <a className="navbar-brand" href="/">BookMySlot</a>
+            <nav className="navbar navbar-expand-lg navbar-light border" style={{backgroundColor: '#FAA4A4', padding: '10px 50px', fontWeight: 700 }}>
+                <a className="navbar-brand" href="/" style={{color:'white'}}>BookMySlot</a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -18,16 +18,16 @@ export default function Navbar(props) {
                     </form>
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
-                            <Link className="nav-link" to="/user/appointments">Appointments</Link>
+                            {/* <Link className="nav-link" to="">Appointments</Link> */}
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="professional/register">Join as a Professional</Link>
+                            {/* <Link className="nav-link" to="professional/register">Join as a Professional</Link> */}
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/user/login">Login</Link>
+                            <Link className="nav-link" to="/professional/register" style={{color:'white'}}>Login</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/user/signup">Signup</Link>
+                            <Link className="nav-link" style={{color:'white'}} to="/professional/register">Signup</Link>
                         </li>
                     </ul>
                 </div>

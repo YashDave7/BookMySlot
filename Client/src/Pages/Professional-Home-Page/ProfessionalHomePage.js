@@ -9,6 +9,7 @@ import ProfDashboard from './ProfDashboard';
 // import TodaysAppointmets from './TodaysAppointmets';
 import user_img from "../../Pages/User-Home-Page/images/reshma.png";
 import ProfessionalNavbar from "./ProfessionalNavbar"
+import ProfessionalFooter from "./ProfessionalFooter"
 
 const ProfessionalHomePage = () => {
 
@@ -205,6 +206,7 @@ const ProfessionalHomePage = () => {
             </div>
           </div>
         </div>
+        
       </div>
 
       {/* <div className="all_camps">
@@ -234,7 +236,7 @@ const ProfessionalHomePage = () => {
           </div>
         ))}
       </div> */}
-
+    <ProfessionalFooter />
     </>
   )
 }
