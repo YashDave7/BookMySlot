@@ -11,6 +11,12 @@ const ProfDasboard = () => {
           <li>Finance</li>
           <li>Notifications</li>
           <li>Logout</li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
         </ul>
       </nav>
     </div>
