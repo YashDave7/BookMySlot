@@ -89,70 +89,72 @@ const UserAppointments = ({ setProfId }) => {
             <h2>Your Appointments</h2>
             <hr/>
             <div className='card-group'>
-                <div class="card mx-3" style={{boxShadow: '0 0 10px grey'}}>
-                    <img src="..." class="card-img-top img-fluid" alt="..."/>
-                    <div class="card-body">
-                        <h5 class="card-title">Dr. Reshma Malik</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
-                    </ul>
-                    <div class="card-body">
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
-                </div>
-                <div class="card mx-3" style={{boxShadow: '0 0 10px grey'}}>
+
+                <div class="card mx-3" style={{boxShadow: '0 0 10px grey', borderRadius: '20px'}}>
                     <img src="..." class="card-img-top img-fluid" alt="..."/>
                     <div class="card-body">
                         <h5 class="card-title" style={{fontWeight: 700}}>Dr. Reshma Malik</h5>
                         <p class="card-text">Profession, Specialization</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><span>Date</span>:</li>
-                        <li class="list-group-item">Time Slot:</li>
-                        <li class="list-group-item">Contact</li>
+                        <li class="list-group-item"><span className='p-2' style={{backgroundColor: '#F4A4A4', borderRadius: '7px', fontWeight: 700}}>Date</span>: 12-10-2023</li>
+                        <li class="list-group-item"><span className='p-2' style={{backgroundColor: '#F4A4A4', borderRadius: '7px', fontWeight: 700}}>Time Slot</span>: 09:30AM - 10:30Am</li>
+                        <li class="list-group-item"><span className='p-2' style={{backgroundColor: '#F4A4A4', borderRadius: '7px', fontWeight: 700}}>Contact</span>: 7894561235, drdr@gmail.com</li>
                     </ul>
                     <div class="card-body">
-                        <a href="#" class="card-link">Cancel Appointment</a>
+                        <button className='btn text-white' style={{backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid black'}}>Cancel Appointment</button>
                         
                     </div>
                 </div>
-                <div class="card mx-3" style={{boxShadow: '0 0 10px grey'}}>
+                <div class="card mx-3" style={{boxShadow: '0 0 10px grey', borderRadius: '20px'}}>
                     <img src="..." class="card-img-top img-fluid" alt="..."/>
                     <div class="card-body">
-                        <h5 class="card-title">Dr. Reshma Malik</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <h5 class="card-title" style={{fontWeight: 700}}>Dr. Reshma Malik</h5>
+                        <p class="card-text">Profession, Specialization</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
+                        <li class="list-group-item"><span className='p-2' style={{backgroundColor: '#F4A4A4', borderRadius: '7px', fontWeight: 700}}>Date</span>: 12-10-2023</li>
+                        <li class="list-group-item"><span className='p-2' style={{backgroundColor: '#F4A4A4', borderRadius: '7px', fontWeight: 700}}>Time Slot</span>: 09:30AM - 10:30Am</li>
+                        <li class="list-group-item"><span className='p-2' style={{backgroundColor: '#F4A4A4', borderRadius: '7px', fontWeight: 700}}>Contact</span>: 7894561235, drdr@gmail.com</li>
                     </ul>
                     <div class="card-body">
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
+                        <button className='btn text-white' style={{backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid black'}}>Cancel Appointment</button>
+                        
                     </div>
                 </div>
-                <div class="card mx-3" style={{boxShadow: '0 0 10px grey'}}>
+                <div class="card mx-3" style={{boxShadow: '0 0 10px grey', borderRadius: '20px'}}>
                     <img src="..." class="card-img-top img-fluid" alt="..."/>
                     <div class="card-body">
-                        <h5 class="card-title">Dr. Reshma Malik</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <h5 class="card-title" style={{fontWeight: 700}}>Dr. Reshma Malik</h5>
+                        <p class="card-text">Profession, Specialization</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
+                        <li class="list-group-item"><span className='p-2' style={{backgroundColor: '#F4A4A4', borderRadius: '7px', fontWeight: 700}}>Date</span>: 12-10-2023</li>
+                        <li class="list-group-item"><span className='p-2' style={{backgroundColor: '#F4A4A4', borderRadius: '7px', fontWeight: 700}}>Time Slot</span>: 09:30AM - 10:30Am</li>
+                        <li class="list-group-item"><span className='p-2' style={{backgroundColor: '#F4A4A4', borderRadius: '7px', fontWeight: 700}}>Contact</span>: 7894561235, drdr@gmail.com</li>
                     </ul>
                     <div class="card-body">
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
+                        <button className='btn text-white' style={{backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid black'}}>Cancel Appointment</button>
+                        
                     </div>
                 </div>
+                <div class="card mx-3" style={{boxShadow: '0 0 10px grey', borderRadius: '20px'}}>
+                    <img src="..." class="card-img-top img-fluid" alt="..."/>
+                    <div class="card-body">
+                        <h5 class="card-title" style={{fontWeight: 700}}>Dr. Reshma Malik</h5>
+                        <p class="card-text">Profession, Specialization</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><span className='p-2' style={{backgroundColor: '#F4A4A4', borderRadius: '7px', fontWeight: 700}}>Date</span>: 12-10-2023</li>
+                        <li class="list-group-item"><span className='p-2' style={{backgroundColor: '#F4A4A4', borderRadius: '7px', fontWeight: 700}}>Time Slot</span>: 09:30AM - 10:30Am</li>
+                        <li class="list-group-item"><span className='p-2' style={{backgroundColor: '#F4A4A4', borderRadius: '7px', fontWeight: 700}}>Contact</span>: 7894561235, drdr@gmail.com</li>
+                    </ul>
+                    <div class="card-body">
+                        <button className='btn text-white' style={{backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid black'}}>Cancel Appointment</button>
+                        
+                    </div>
+                </div>
+                
             </div>
         </>
     )
