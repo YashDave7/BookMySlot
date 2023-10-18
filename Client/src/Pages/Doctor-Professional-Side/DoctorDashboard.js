@@ -1,29 +1,29 @@
-// import styled from 'styled-components'
-import React, { useContext } from 'react';
-import './style/DoctorDashboard.css'
+// // import styled from 'styled-components'
+// import React, { useContext } from 'react';
+// import './style/DoctorDashboard.css'
 
-import SideMenu from './SideMenu';
-import WelcomeMessage from './Message';
-import Doctor from './Doctor';
-import MyCalendar from './MyCalendar';
+// import SideMenu from './SideMenu';
+// import WelcomeMessage from './Message';
+// import Doctor from './Doctor';
+// import MyCalendar from './MyCalendar';
 
-const DoctorDashboard = (props) =>{
-  return(
-    <div className='main'>
-       <SideMenu/>
+// const DoctorDashboard = (props) =>{
+//   return(
+//     <div className='main'>
+//        <SideMenu/>
   
-       <WelcomeMessage/>
+//        <WelcomeMessage/>
        
-       <MyCalendar />
+//        <MyCalendar />
 
-    </div>
+//     </div>
       
       
 
-  );
-}
+//   );
+// }
 
 
 
 
-export default DoctorDashboard
+// export default DoctorDashboard

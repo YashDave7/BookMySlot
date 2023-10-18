@@ -1,0 +1,24 @@
+.SideMenu {
+  background-color: #f89686;
+}
+.SideMenu ul {
+  list-style-type: none;
+  padding: 10px;
+  /* background-color: white; */
+  background-color: #f89686;
+}
+
+.SideMenu ul li {
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  color: black;
+  padding: 25px;
+  background-color: #f89686;
+}
+
+.SideMenu ul li:hover {
+  background-color: #f89686;
+}
+
+

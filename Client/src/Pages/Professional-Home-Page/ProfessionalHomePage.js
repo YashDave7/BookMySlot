@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 // import React, { Component } from 'react';
 import Calendar from 'react-calendar';
 import './style/MyCalendar.css';
+import './style/WelcomeMessage1.css';
 import ProfDashboard from './ProfDashboard';
 // import TodaysAppointmets from './TodaysAppointmets';
 import user_img from "../../Pages/User-Home-Page/images/reshma.png";

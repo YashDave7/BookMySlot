@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <div style={{backgroundColor: '#d4d9f7'}}>
       <div className="container">
-        <footer className="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
+        <footer className="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 border-top">
           <div className="col mb-3">
             <h3>BookMySlot</h3>
 
