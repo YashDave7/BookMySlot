@@ -16,6 +16,7 @@ import UserAppointments from './Pages/User-Appointments-Page/UserAppointments';
 import NotificationPage from './Pages/Notifications-User/NotificationPage';
 import Footer from './Components/Footer/Footer';
 import Finance from './Pages/Professional-Finance-Page/Finance';
+import Admin from './Pages/Admin/Admin';
 function App() {
 
   const [profId, setProfId] = useState('');
@@ -40,6 +41,7 @@ function App() {
           <Route exact path='/professional/register' element={<ProfessionalLogin />} />
           <Route exact path='/professional/home' element={<ProfessionalHomePage />} />
           <Route exact path='/professional/finance' element={<Finance />} />
+          <Route exact path='/admin' element={<Admin />} />
         </Routes>
 
         <Footer />
