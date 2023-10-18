@@ -89,8 +89,8 @@ const UserAppointments = ({ setProfId }) => {
                 </div>
             </div> */}
 
-            <h2>Your Appointments</h2>
-            <hr />
+            <h2 className='mx-5 mt-3'>Your Appointments</h2>
+          
             <div class="row row-cols-1 row-cols-md-2 g-4">
                 <div class="col">
 
@@ -112,6 +112,7 @@ const UserAppointments = ({ setProfId }) => {
                             </div>
                         </div>
                     ))}
+                    
                     {/* <div class="card mx-3" style={{boxShadow: '0 0 10px grey', borderRadius: '20px'}}>
                     <img src="..." class="card-img-top img-fluid" alt="..."/>
                     <div class="card-body">

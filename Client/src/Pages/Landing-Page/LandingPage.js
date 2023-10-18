@@ -14,7 +14,7 @@ const LandingPage = () => {
             <Features/>
             <About/>
             <Contact/>
-            {/* <Footer/> */}
+            <Footer/>
         </div>
     )
 }
