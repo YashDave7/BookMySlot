@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import user_img from '../../Pages/User-Home-Page/images/reshma.png'
-// import "./card.css";
+import "./card.css";
+import banner from "./images/banner-doctor.jpg"
+import ad from "./images/ad-counsellor.jpg"
 
 const UserHomePage = ({ setProfId }) => {
   let navigate = useNavigate();
@@ -181,20 +183,20 @@ const UserHomePage = ({ setProfId }) => {
 
       <div className="container-fluid no-padding">
         <div className="row">
-          <div className="filters">
-              <button className="btn text-white py-2" style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid black' }}>Location</button>
-              <button className="btn text-white py-2" style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid black' }}>Search</button>
-              <button className="btn text-white py-2" style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid black' }}>Ratings 4+</button>
-              <button className="btn text-white py-2" style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid black' }}>Professional</button>
+          <div className="filters" >
+             <div className="fil-btn"><button className="btn text-white py-2" style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid #9aa4ec' }}>Location</button></div> 
+             <div className="fil-btn"><button className="btn text-white py-2" style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid #9aa4ec' }}>Search</button></div> 
+             <div className="fil-btn"><button className="btn text-white py-2" style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid #9aa4ec'}}>Ratings 4+</button></div> 
+             <div className="fil-btn"><button className="btn text-white py-2" style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid #9aa4ec' }}>Professional</button></div> 
           </div>
           <div
             className="col-12 px-5"
-            style={{ border: "2px solid red", height: "20vh" }}
+            
           >
-            ADVERTISEMENT-1
+            <img className="banner-img" src={banner}></img>
           </div>
 
-          <div className="col-9 px-5" style={{ border: "2px solid red" }}>
+          <div className="col-9 px-5" >
             {professionals.map((item, i) => (
               <div onClick={() => goToProfessional(item._id)} key={i} className="card mb-3 mt-3" style={{ width: '100%', boxShadow: '0 0 10px grey', cursor: 'pointer' }}>
                 <div className="row g-0">
@@ -224,7 +226,7 @@ const UserHomePage = ({ setProfId }) => {
                     </div>
                   </div>
                   <div className="col-md-3 m-auto">
-                    <button className="btn text-white py-2" style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid black' }}>Book Your Appointment</button>
+                    <button className="btn text-white py-2" style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid #9aa4ec' }}>Book Your Appointment</button>
                   </div>
                 </div>
               </div>
@@ -361,9 +363,9 @@ const UserHomePage = ({ setProfId }) => {
 
           <div
             className="col-3 px-5"
-            style={{ border: "2px solid red", height: "100vh" }}
+            
           >
-            ADVERTISEMENT-2
+            <img className="side-img" src={ad}></img>
           </div>
         </div>
       </div>
