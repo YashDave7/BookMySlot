@@ -1,11 +1,11 @@
 .SideMenu {
-  background-color: #f6e8e7;
+  background-color: #ffecec;
 }
 .SideMenu ul {
   list-style-type: none;
   padding: 10px;
   /* background-color: white; */
-  background-color: #f6e8e7;
+  background-color:  #ffeaea;
 }
 
 .SideMenu ul li {
@@ -15,11 +15,11 @@
   transition: background-color 0.3s;
   color: black;
   padding: 25px;
-  background-color: #f6e8e7;
+  background-color: #ffecec;
 }
 
 .SideMenu ul li:hover {
-  background-color: #f6e8e7;
+  background-color: #ffecec;
 }
 
 
