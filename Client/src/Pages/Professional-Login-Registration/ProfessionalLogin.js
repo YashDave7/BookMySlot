@@ -60,7 +60,7 @@ const ProfessionalLogin = () => {
             return;
         }
         try {
-            const response = await fetch(`http://localhost:5000/api/professional/createprofessional`, {
+            const response = await fetch(`http://localhost:5000/api/authProfessional/createprofessional`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -76,9 +76,9 @@ const ProfessionalLogin = () => {
                     address: registerCredentials.address,
                     city: registerCredentials.city,
                     fees: registerCredentials.fees,
-                    startTime: registerCredentials.startTime,
-                    endTime: registerCredentials.endTime,
-                    eachSlotTime: registerCredentials.eachSlotTime,
+                    // startTime: registerCredentials.startTime,
+                    // endTime: registerCredentials.endTime,
+                    // eachSlotTime: registerCredentials.eachSlotTime,
                     password: registerCredentials.password
                 })
             });
@@ -201,11 +201,11 @@ const ProfessionalLogin = () => {
                                 <input type="text" name="gender" value={registerCredentials.gender} onChange={onChangeRegister} placeholder="Select your gender" />
                                 <input type="text" name="address" value={registerCredentials.address} onChange={onChangeRegister} placeholder="Enter Address" />
                                 <input type="text" name="city" value={registerCredentials.city} onChange={onChangeRegister} placeholder="Enter City" />
-                                <input type="number" name="fees" value={registerCredentials.fees} onChange={onChangeRegister} placeholder="Enter approx fees" />
+                                <input type="number" name="fees" value={registerCredentials.fees} onChange={onChangeRegister} placeholder="Fees per session" />
                                 {/* Modify timing input to accept an array */}
-                                <input type="time" name="startTime" value={registerCredentials.startTime} onChange={onChangeRegister} placeholder="Enter Start Time" />
-                                <input type="time" name="endTime" value={registerCredentials.endTime} onChange={onChangeRegister} placeholder="Enter End Time" />
-                                <input type="time" name="eachSlotTime" value={registerCredentials.eachSlotTime} onChange={onChangeRegister} placeholder="Enter Total Slot Time" />
+                                <input type="number" name="startTime" value={registerCredentials.startTime} onChange={onChangeRegister} placeholder="Enter Start Time" />
+                                <input type="number" name="endTime" value={registerCredentials.endTime} onChange={onChangeRegister} placeholder="Enter End Time" />
+                                <input type="number" name="eachSlotTime" value={registerCredentials.eachSlotTime} onChange={onChangeRegister} placeholder="Enter Total Slot Time" />
                                 <input type="password" name="password" value={registerCredentials.password} onChange={onChangeRegister} placeholder="Enter Password" />
                                 <input type="password" name="confirmPassword" value={registerCredentials.confirmPassword} onChange={onChangeRegister} placeholder="Confirm password" />
                                 <button id="prof-btn" type="submit" className="btn signup">

@@ -4,6 +4,8 @@ import React from 'react';
 import NotificationCard from './NotificationCard';
 import './NotificationPage.css';
 import { Link } from 'react-router-dom';
+import Navbar from '../../Components/Navbar/Navbar';
+import Footer from '../../Components/Footer/Footer';
 
 const NotificationPage = () => {
   const notifications = [
@@ -13,6 +15,8 @@ const NotificationPage = () => {
   ];
 
   return (
+    <>
+    <Navbar/>
     <div className="notifications-page">
       <h2 className="page-title">Notifications</h2>
       <div className="notification-list">
@@ -24,8 +28,10 @@ const NotificationPage = () => {
           />
         ))}
       </div>
-      <Link to="/"><button className="back-button">Back</button></Link>
+      <Link to="/user/home"><button className="back-button">Back</button></Link>
     </div>
+    <Footer/>
+    </>
   );
 };
 

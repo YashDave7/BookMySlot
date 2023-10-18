@@ -107,7 +107,7 @@ const ProfessionalHomePage = () => {
      
         <div className='row'>
          
-          <div className='side_bar col-2' style={{backgroundColor:' #ffecec'}} >
+          <div className='side_bar col-2' style={{backgroundColor:' rgb(250, 164, 164)'}} >
             <ProfDashboard />
           </div>
           <div className='col-10'>
@@ -139,6 +139,9 @@ const ProfessionalHomePage = () => {
                                 <h5 className="card-title" style={{ fontWeight: 700 }}>
                                   {item.username}
                                 </h5>
+                                <h6 className="card-title" style={{ fontWeight: 500 }}>
+                                  Contact No: {item.usermobile}
+                                </h6>
                                 <p className="card-text">
                                   <span
                                     className="px-2 py-2 text-white mr-3"
@@ -184,7 +187,7 @@ const ProfessionalHomePage = () => {
                                   border: "1px solid black",
                                 }}
                               >
-                                {item.paymentStatus}
+                                {item.paymentStatus}, {item.paymentAmount}
                               </button>
                             </div>
                           </div>

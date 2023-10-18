@@ -224,8 +224,10 @@ const UserHomePage = ({ setProfId }) => {
                         <small className="mx-3"> {item.reviews.length} Ratings </small>
                       </p>
                       <p className="card-text">
-                        {item.profession} <br />
-                        <span>{item.specialisation}</span>
+                        {item.profession} - {item.specialisation}
+                      </p>
+                      <p className="card-text">
+                        Fees: {item.fees} per session
                       </p>
                       <p className="card-text text-secondary">
                         {item.address}

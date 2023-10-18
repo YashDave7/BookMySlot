@@ -20,7 +20,10 @@ const UserAppointments = ({ setProfId }) => {
         });
         const json = await response.json();
 
-        setAppointments(json);
+        // Sort appointments in descending order of dates
+  const sortedAppointments = json.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        setAppointments(sortedAppointments);
     }
 
     const cancelAppointment = async (id) => {

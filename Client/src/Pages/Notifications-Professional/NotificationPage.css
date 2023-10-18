@@ -1,0 +1,26 @@
+/* NotificationsPage.css */
+
+.notifications-page {
+    padding: 20px;
+  }
+  
+  .page-title {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .back-button {
+    background-color: #9AA4EC;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+  }
+  
+  .back-button:hover {
+    background-color: #aeb8ff;
+  }
+  
