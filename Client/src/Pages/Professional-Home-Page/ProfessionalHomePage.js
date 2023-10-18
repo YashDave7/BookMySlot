@@ -7,6 +7,7 @@ import './style/MyCalendar.css';
 import ProfDashboard from './ProfDashboard';
 // import TodaysAppointmets from './TodaysAppointmets';
 import user_img from "../../Pages/User-Home-Page/images/reshma.png";
+import ProfessionalNavbar from "./ProfessionalNavbar"
 
 const ProfessionalHomePage = () => {
 
@@ -98,10 +99,13 @@ const ProfessionalHomePage = () => {
   };
 
   return (
-    <>
-      <div className='container-fluid no-padding'>
+    <> 
+    <ProfessionalNavbar />
+      <div className='container-fluid no-padding' > 
+     
         <div className='row'>
-          <div className='side_bar col-2' style={{backgroundColor:'#f89686'}} >
+         
+          <div className='side_bar col-2' style={{backgroundColor:'#f6e8e7'}} >
             <ProfDashboard />
           </div>
           <div className='col-10'>
