@@ -24,7 +24,7 @@ function App() {
   return (
     <>
       <Router>
-        {/* <Navbar /> */}
+        <Navbar />
         <ToastNotifications />
         <Routes>
           {/* <Route path="/doctordashboard" element={<DoctorDashboard/>} /> */}

@@ -257,7 +257,7 @@ const Professional = (props) => {
         </svg>
       );
     }
-
+    console.log(stars);
     return stars;
   };
 
@@ -348,6 +348,7 @@ const Professional = (props) => {
 
                         <p className="card-text">
                           {item.review}
+                          console.log({item.review});
                         </p>
 
                       </div>
