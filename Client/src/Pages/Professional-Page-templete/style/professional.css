@@ -1,0 +1,5 @@
+.time-slot:focus {
+    background-color: green;
+    font-weight: 700;
+    color: red;
+}

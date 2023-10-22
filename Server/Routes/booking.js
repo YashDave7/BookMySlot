@@ -81,7 +81,7 @@ router.post('/bookappointment/:id', fetchUser, async (req, res) => {
         client.messages
             .create({
                 body: `Appointment Scheduled on BookMySlot with ${professional.name} on ${req.body.appointmentDate} from ${req.body.timing}`,
-                to: '+919152008255', // Text your number
+                to: `+91${user.mobile}`, // Text your number
                 from: process.env.twilioNumber, // From a valid Twilio number
             })
             .then((message) => console.log(message.sid));

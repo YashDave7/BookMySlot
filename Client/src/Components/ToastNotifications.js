@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css'
 const ToastNotifications = () => {
     return (
         <>
-            <ToastContainer autoClose={5000} />
+            <ToastContainer position="bottom-center" theme="colored" autoClose={3000} />
         </>
     )
 }

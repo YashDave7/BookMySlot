@@ -6,7 +6,7 @@
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
   border-radius: 5px;
   padding: 20px;
-  width: 300px; /* Adjust the width to your desired size */
+  width: 300px; 
   text-align: center; /* Center the calendar within its container */
 }
 
@@ -24,7 +24,7 @@
 
 /* Style the calendar title (month and year) */
 .react-calendar__navigation__label {
-  font-size: 13px;
+  font-size: 17px;
   border: 1px solid #ddd;
 }
 
@@ -46,12 +46,13 @@
 /* Style the days of the week (Sun, Mon, Tue, etc.) */
 .react-calendar__month-view__weekdays {
   border: 1px solid white;
+  text-align: center;
   
 }
 
 .react-calendar__month-view__weekdays__weekday--current{
-  background-color: #6474e5;
-  
+  background-color: #9AA4EC;
+  font-weight: 700;
 }
 
 
@@ -73,11 +74,10 @@
 }
 
 /* Style selected day cell */
-.react-calendar__tile--active {
-  background-color: #87DFDB;
+.react-calendar__tile:focus {
+  /* background-color: #87DFDB; */
   color: black;
-  
-  border: 1px solid white;
+  border: 12px solid #9AA4EC;
 }
 .react-calendar__tile {
   border: 1px solid white;
@@ -86,7 +86,8 @@
 }
 /* Style today's date cell */
 .react-calendar__tile--now {
-  background-color: #87DFDB;
+  background-color: #9AA4EC;
   border: 1px solid #ddd;
+  font-weight: 700;
 }
 

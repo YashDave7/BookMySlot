@@ -6,20 +6,20 @@ const TimingsSchema = new Schema({
         type: String,
         // required: true
     },
-    yearIndex: {
-        type: Number,
-        default: 0
-    },
+    // yearIndex: {
+    //     type: Number,
+    //     default: 0
+    // },
     timeslots: [{
         timeFrame: {
             type: String,
             required: true
+        },
+        status: {
+            type: String,
+            default: 'Vacant'
         }
-    }],
-    status: {
-        type: String,
-        default: 'Vacant'
-    }
+    }]
 });
 
 console.log(increaseDateByOneDay(new Date().toISOString().split('T')[0], 15));
