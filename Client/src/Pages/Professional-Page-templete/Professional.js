@@ -357,7 +357,7 @@ const Professional = (props) => {
                     </div>
                     <div className="col-md-7">
                       <div className="card-body">
-                        <h5 className="card-title" style={{ fontWeight: 700 }}>{item.user_id}</h5>
+                        <h5 className="card-title" style={{ fontWeight: 700 }}>{item.username}</h5>
 
                         <p className="card-text">
                           {item.review}

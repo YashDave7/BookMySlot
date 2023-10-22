@@ -7,6 +7,11 @@ const fetchProfessional = require('../middleware/fetchProfessional');
 const { toast } = require('react-toastify');
 const nodemailer = require('nodemailer');
 
+const accountSid = process.env.accountSid;
+const authToken =  process.env.authToken;
+
+const client = require('twilio')(accountSid, authToken);
+
 const router = express.Router();
 
 
@@ -42,6 +47,8 @@ router.post('/bookappointment/:id', fetchUser, async (req, res) => {
             // paymentTiming: req
         })
 
+
+        // CODE TO SEND MAIL NOTIFICATION TO THE USER.
         const useremail = user.email;
         const date = req.body.appointmentDate;
         const slot = req.body.timing;
@@ -68,6 +75,16 @@ router.post('/bookappointment/:id', fetchUser, async (req, res) => {
             }
             console.log("SENT : " + info.response);
         })
+
+        // CODE TO SEND A SMS NOTIFICATION TO THE USER.
+
+        client.messages
+            .create({
+                body: `Appointment Scheduled on BookMySlot with ${professional.name} on ${req.body.appointmentDate} from ${req.body.timing}`,
+                to: '+919152008255', // Text your number
+                from: process.env.twilioNumber, // From a valid Twilio number
+            })
+            .then((message) => console.log(message.sid));
 
         res.send(booking);
     } catch (error) {
