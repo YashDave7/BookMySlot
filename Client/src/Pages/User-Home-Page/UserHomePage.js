@@ -192,15 +192,15 @@ const UserHomePage = ({ setProfId }) => {
 
       <div className="container-fluid no-padding">
         <div className="row">
-          {/* <div className="mx-5 filters" >
-             <form className="form-inline my-2 my-lg-0">
-                        <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-             <div className="fil-btn"><button className="btn text-white py-2" style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid #9aa4ec'}}>Ratings 4+</button></div> 
-                    </form>
-             <div className="fil-btn"><button className="btn text-white py-2" style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid #9aa4ec' }}>Location</button></div> 
-             <div className="fil-btn"><button className="btn text-white py-2" style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid #9aa4ec' }}>Search</button></div> 
-             <div className="fil-btn"><button className="btn text-white py-2" style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid #9aa4ec' }}>Professional</button></div> 
-          </div> */}
+          <div className="mx-5 filters" >
+            <form className="form-inline my-2 my-lg-0">
+              <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+              <div className="fil-btn"><button className="btn text-white py-2" style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid #9aa4ec' }}>Search</button></div>
+            </form>
+            <div className="fil-btn"><button className="btn text-white py-2" style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid #9aa4ec' }}>Ratings 4+</button></div>
+            <div className="fil-btn"><button className="btn text-white py-2" style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid #9aa4ec' }}>Location</button></div>
+            <div className="fil-btn"><button className="btn text-white py-2" style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid #9aa4ec' }}>Professional</button></div>
+          </div>
           <div
             className="col-12 px-5"
 

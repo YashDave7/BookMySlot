@@ -5,6 +5,7 @@ const Appointments = require('../models/Appointments');
 const fetchUser = require('../middleware/fetchUser');
 const fetchProfessional = require('../middleware/fetchProfessional');
 const { toast } = require('react-toastify');
+const nodemailer = require('nodemailer');
 
 const router = express.Router();
 
@@ -40,6 +41,34 @@ router.post('/bookappointment/:id', fetchUser, async (req, res) => {
             paymentAmount: professional.fees,
             // paymentTiming: req
         })
+
+        const useremail = user.email;
+        const date = req.body.appointmentDate;
+        const slot = req.body.timing;
+        console.log("Sending Booking Mail")
+        const transporter = nodemailer.createTransport({
+            service: "Gmail",
+            auth: {
+                user: "yashdave307@gmail.com",
+                pass: "oqfv kezr tcsl rbte",
+            },
+        });
+
+        const options = {
+            from: 'yashdave307@gmail.com',
+            to: useremail, // RECEIVER EMAIL.
+            subject: "Appointment Scheduled",
+            text: `Your Appointment is scheduled on ${date} at ${slot}`
+        };
+
+        transporter.sendMail(options, function (err, info) {
+            if (err) {
+                console.log(err);
+                return;
+            }
+            console.log("SENT : " + info.response);
+        })
+
         res.send(booking);
     } catch (error) {
         console.log(error.message, "Hlloo");
@@ -65,25 +94,24 @@ router.put('/usercancelappointment/:id', fetchUser, async (req, res) => {
         }
 
         // checking if appointment is already cancelled.
-        if(appointment.status == "Cancelled by Professional" || appointment.status == "Cancelled by User")
-        {
+        if (appointment.status == "Cancelled by Professional" || appointment.status == "Cancelled by User") {
             return res.status(401).send("Appointment already cancelled");
         }
 
         const cancelled = {}
-            cancelled.userid = appointment.userid;
-            cancelled.username = appointment.username;
-            cancelled.useremail = appointment.useremail;
-            cancelled.usermobile = appointment.usermobile;
-            cancelled.professionalid = appointment.professionalid;
-            cancelled.professionalname = appointment.professionalname;
-            cancelled.professionalemail = appointment.professionalemail;
-            cancelled.professionalemobile = appointment.professionalmobile;
-            cancelled.professionalprofession = appointment.professionalprofession;
-            cancelled.professionalspecialisation = appointment.professionalspecialisation;
-            // cancelled.timing = appointment.timing;
-            cancelled.status = "Cancelled by User";
-        
+        cancelled.userid = appointment.userid;
+        cancelled.username = appointment.username;
+        cancelled.useremail = appointment.useremail;
+        cancelled.usermobile = appointment.usermobile;
+        cancelled.professionalid = appointment.professionalid;
+        cancelled.professionalname = appointment.professionalname;
+        cancelled.professionalemail = appointment.professionalemail;
+        cancelled.professionalemobile = appointment.professionalmobile;
+        cancelled.professionalprofession = appointment.professionalprofession;
+        cancelled.professionalspecialisation = appointment.professionalspecialisation;
+        // cancelled.timing = appointment.timing;
+        cancelled.status = "Cancelled by User";
+
 
         appointment = await Appointments.findByIdAndUpdate(req.params.id, { $set: cancelled }, { new: true });
         res.json({ "Success": "Appointment has been Cancelled" });
@@ -109,27 +137,26 @@ router.put('/professionalcancelappointment/:id', fetchProfessional, async (req, 
         if (appointment.professionalid.toString() != req.professional.id) {
             return res.status(401).send("Not Allowed");
         }
-        
+
         // checking if appointment is already cancelled.
-        if(appointment.status == "Cancelled by Professional" || appointment.status == "Cancelled by User")
-        {
+        if (appointment.status == "Cancelled by Professional" || appointment.status == "Cancelled by User") {
             return res.status(401).send("Appointment already cancelled");
         }
 
         const cancelled = {}
-            cancelled.userid = appointment.userid;
-            cancelled.username = appointment.username;
-            cancelled.useremail = appointment.useremail;
-            cancelled.usermobile = appointment.usermobile;
-            cancelled.professionalid = appointment.professionalid;
-            cancelled.professionalname = appointment.professionalname;
-            cancelled.professionalemail = appointment.professionalemail;
-            cancelled.professionalemobile = appointment.professionalmobile;
-            cancelled.professionalprofession = appointment.professionalprofession;
-            cancelled.professionalspecialisation = appointment.professionalspecialisation;
-            // cancelled.timing = appointment.timing;
-            cancelled.status = "Cancelled by Professional";
-        
+        cancelled.userid = appointment.userid;
+        cancelled.username = appointment.username;
+        cancelled.useremail = appointment.useremail;
+        cancelled.usermobile = appointment.usermobile;
+        cancelled.professionalid = appointment.professionalid;
+        cancelled.professionalname = appointment.professionalname;
+        cancelled.professionalemail = appointment.professionalemail;
+        cancelled.professionalemobile = appointment.professionalmobile;
+        cancelled.professionalprofession = appointment.professionalprofession;
+        cancelled.professionalspecialisation = appointment.professionalspecialisation;
+        // cancelled.timing = appointment.timing;
+        cancelled.status = "Cancelled by Professional";
+
 
         appointment = await Appointments.findByIdAndUpdate(req.params.id, { $set: cancelled }, { new: true });
         res.json({ "Success": "Appointment has been Cancelled" });
