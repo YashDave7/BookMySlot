@@ -4,7 +4,6 @@ const Professionals = require('../models/Professionals');
 const Appointments = require('../models/Appointments');
 const fetchUser = require('../middleware/fetchUser');
 const fetchProfessional = require('../middleware/fetchProfessional');
-const { toast } = require('react-toastify');
 const nodemailer = require('nodemailer');
 
 const accountSid = process.env.accountSid;
@@ -78,18 +77,17 @@ router.post('/bookappointment/:id', fetchUser, async (req, res) => {
 
         // CODE TO SEND A SMS NOTIFICATION TO THE USER.
 
-        client.messages
-            .create({
-                body: `Appointment Scheduled on BookMySlot with ${professional.name} on ${req.body.appointmentDate} from ${req.body.timing}`,
-                to: `+91${user.mobile}`, // Text your number
-                from: process.env.twilioNumber, // From a valid Twilio number
-            })
-            .then((message) => console.log(message.sid));
+        // client.messages
+        //     .create({
+        //         body: `Appointment Scheduled on BookMySlot with ${professional.name} on ${req.body.appointmentDate} from ${req.body.timing}`,
+        //         to: `+91${user.mobile}`, // Text your number
+        //         from: process.env.twilioNumber, // From a valid Twilio number
+        //     })
+        //     .then((message) => console.log(message.sid));
 
         res.send(booking);
     } catch (error) {
-        console.log(error.message, "Hlloo");
-        toast.error('Internal Server Error');
+        console.log(error.message);
         res.status(500).send("Some Error Occured");
     }
 })
@@ -134,7 +132,6 @@ router.put('/usercancelappointment/:id', fetchUser, async (req, res) => {
         res.json({ "Success": "Appointment has been Cancelled" });
     } catch (error) {
         console.log(error.message);
-        toast.error('Internal Server Error');
         res.status(500).send("Some Error Occured");
     }
 })
@@ -179,7 +176,6 @@ router.put('/professionalcancelappointment/:id', fetchProfessional, async (req, 
         res.json({ "Success": "Appointment has been Cancelled" });
     } catch (error) {
         console.log(error.message);
-        toast.error('Internal Server Error');
         res.status(500).send("Some Error Occured");
     }
 })
