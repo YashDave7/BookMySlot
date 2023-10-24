@@ -125,7 +125,7 @@ router.put('/usercancelappointment/:id', fetchUser, async (req, res) => {
         cancelled.professionalprofession = appointment.professionalprofession;
         cancelled.professionalspecialisation = appointment.professionalspecialisation;
         // cancelled.timing = appointment.timing;
-        cancelled.status = "Cancelled by User";
+        cancelled.bookingStatus = "Cancelled by User";
 
 
         appointment = await Appointments.findByIdAndUpdate(req.params.id, { $set: cancelled }, { new: true });

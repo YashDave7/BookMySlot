@@ -21,7 +21,7 @@ const UserAppointments = ({ setProfId }) => {
         const json = await response.json();
 
         // Sort appointments in descending order of dates
-  const sortedAppointments = json.sort((a, b) => new Date(b.date) - new Date(a.date));
+        const sortedAppointments = json.sort((a, b) => new Date(b.date) - new Date(a.date));
 
         setAppointments(sortedAppointments);
     }
@@ -39,11 +39,11 @@ const UserAppointments = ({ setProfId }) => {
             // const json = response.json();
 
             // Logic to delete note at frontend.
-            // const newNotes = notes.filter((note) => {
-            //     return note._id !== id
-            // })
-            // setNotes(newNotes);
-            // toast.success("Note Deleted Successfully");
+            const newNotes = notes.filter((note) => {
+                return note._id !== id
+            })
+            setNotes(newNotes);
+            toast.success("Appointment Cancelled Successfully");
         } catch (error) {
             console.log(error);
         }
@@ -62,38 +62,9 @@ const UserAppointments = ({ setProfId }) => {
     return (
         <>
             <Navbar />
-            {/* <div>
-                <h2>Your Appointments</h2>
-                <div className="all_camps">
-                    {appointments.map((item, i) => (
-                        <div>
-                            <div className="card-body">
-                                {/* <div className='d-flex justify-content-between align-items-center'> 
-                                <h5 className="card-title">{item.professionalname}</h5>
-                                {/* </div> 
-                                <div className='d-flex justify-content-between mb-0'>
-                                    <span class="badge text-bg-secondary" style={{ "color": "#F4EEE0" }}>{item.email}</span>
-                                    <div>
-                                        <i className="fa-solid fa-pen-to-square" style={{ "fontSize": "20px" }}>
-                                            {item.professionalemail}</i>
-                                        <i className="fa-solid fa-trash mx-2" style={{ "fontSize": "20px" }}></i>
-                                    </div>
-                                </div>
-                                <p className="my-2 font-weight-light" style={{ "fontWeight": "lighter", "fontStyle": "italic", "fontSize": "14px" }}>{item.profession},
-                                    {item.professionalmobile},
-                                    {item.date}
-                                </p>
-                                <p>{item.status}</p>
-                                <button onClick={ () => cancelAppointment(item._id) }>Cancel Appointment</button>
-                            </div>
-
-                        </div>
-                    ))}
-                </div>
-            </div> */}
 
             <h2 className='mx-5 mt-3'>Your Appointments</h2>
-          
+
             <div class="row row-cols-1 row-cols-md-2 g-4">
                 <div class="col">
 
@@ -108,14 +79,22 @@ const UserAppointments = ({ setProfId }) => {
                                 <li class="list-group-item"><span className='p-2' style={{ backgroundColor: '#F4A4A4', borderRadius: '7px', fontWeight: 700 }}>Date</span>: {item.appointmentDate}</li>
                                 <li class="list-group-item"><span className='p-2' style={{ backgroundColor: '#F4A4A4', borderRadius: '7px', fontWeight: 700 }}>Time Slot</span>: {item.timing}</li>
                                 <li class="list-group-item"><span className='p-2' style={{ backgroundColor: '#F4A4A4', borderRadius: '7px', fontWeight: 700 }}>Contact</span>: {item.professionalmobile}, {item.professionalemail}</li>
+                                <li class="list-group-item"><span className='p-2' style={{ backgroundColor: '#F4A4A4', borderRadius: '7px', fontWeight: 700 }}>Status</span>:{item.bookingStatus}</li>
                             </ul>
                             <div class="card-body">
-                                <button className='btn text-white' style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid black' }}>Cancel Appointment</button>
-
+                                {item.bookingStatus !== 'Cancelled by User' && item.bookingStatus !== 'Cancelled by Professional' && (
+                                    <button
+                                        className='btn text-white'
+                                        style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid black' }}
+                                        onClick={() => cancelAppointment(item._id)}
+                                    >
+                                        Cancel Appointment
+                                    </button>
+                                )}
                             </div>
                         </div>
                     ))}
-                    
+
                     {/* <div class="card mx-3" style={{boxShadow: '0 0 10px grey', borderRadius: '20px'}}>
                     <img src="..." class="card-img-top img-fluid" alt="..."/>
                     <div class="card-body">
@@ -166,8 +145,8 @@ const UserAppointments = ({ setProfId }) => {
                 </div> */}
 
                 </div>
-            {/* </div> */}
-        </div >
+                {/* </div> */}
+            </div >
             <Footer />
         </>
     )

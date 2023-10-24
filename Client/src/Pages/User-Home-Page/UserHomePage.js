@@ -10,6 +10,8 @@ import Footer from "../../Components/Footer/Footer";
 const UserHomePage = ({ setProfId }) => {
   let navigate = useNavigate();
   const [professionals, setProfessionals] = useState([]);
+  const [selectedFilter, setSelectedFilter] = useState('all');
+  const [searchTerm, setSearchTerm] = useState('');
 
   const getProfessionals = async () => {
     // API call.
@@ -123,83 +125,65 @@ const UserHomePage = ({ setProfId }) => {
     return stars;
   };
 
+  // Function to filter reviews based on selected filter
+  // const filteredProfessionals = professionals.filter((professional) => {
+  //   if (selectedFilter === 'all') {
+  //     return true; // Return all reviews if 'all' is selected
+  //   } else {
+  //     return calculateAverageRating(professional) >= selectedFilter; // Return reviews based on selected filter
+  //   }
+  // });
+
+  // Function to filter professionals based on search term
+  // const filteredProfessionals = professionals.filter((professional) => {
+  //   return (
+  //     professional.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+  //     professional.profession.toLowerCase().includes(searchTerm.toLowerCase()) ||
+  //     professional.specialisation.toLowerCase().includes(searchTerm.toLowerCase()) ||
+  //     professional.address.toLowerCase().includes(searchTerm.toLowerCase())
+  //   );
+  // });
+
+  const filterProfessionals = (professionals, selectedFilter, searchTerm) => {
+    return professionals.filter((professional) => {
+      const matchesSearch =
+        professional.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        professional.profession.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        professional.specialisation.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        professional.address.toLowerCase().includes(searchTerm.toLowerCase());
+
+      const matchesFilter =
+        selectedFilter === "all" ||
+        calculateAverageRating(professional) >= selectedFilter;
+
+      return matchesSearch && matchesFilter;
+    });
+  };
+
+  const filteredProfessionals = filterProfessionals(
+    professionals,
+    selectedFilter,
+    searchTerm
+  );
+
+  // Function to handle filter change
+  const handleFilterChange = (filter) => {
+    setSelectedFilter(filter);
+  };
+
+  // Function to handle search input change
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
   return (
     <>
       <Navbar />
-      {/* <div className="ad">
-        Advertisement
-      </div>
-      <div className='main'>
-        <div className='side-ad'>
-          Advertisement
-        </div>
-        <div className='main-card'>
-          {professionals.map((item, i) => (
-            <div onClick={() => goToProfessional(item._id)} className="card">
-              <div className="card-image">
-
-              </div>
-              <div className="card-info">
-                <div className="prof-name">
-                  {item.name}
-                </div>
-                <div className="rating">
-                  <span className="rate-avg">4.8</span>
-                  <span>124 Ratings</span>
-                </div>
-                <div className="prof-city">
-                  {item.city}
-                </div>
-                <div className="prof-specialisation">
-                  <span>{item.specialisation}</span>
-                  {/* <span>Glaucoma</span> */}
-      {/* </div>
-                <div className="book">
-                  <button>Book Appointment</button>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="all_camps"> */}
-      {/* {professionals.map((item, i) => (
-            <div onClick={() => goToProfessional(item._id)}>
-            <h5 className="card-title">{item.name}</h5>
-              
-                <div className='d-flex justify-content-between mb-0'>
-                  <span className="badge text-bg-secondary" style={{ "color": "#F4EEE0" }}>{item.email}</span>
-                  <div>
-                    <i className="fa-solid fa-pen-to-square" style={{ "fontSize": "20px" }}>
-                      {item.mobile}</i>
-                    <i className="fa-solid fa-trash mx-2" style={{ "fontSize": "20px" }}></i>
-                  </div>
-                </div>
-                <p className="my-2 font-weight-light" style={{ "fontWeight": "lighter", "fontStyle": "italic", "fontSize": "14px" }}>{item.profession},
-                  {item.specialisation},
-                  {item.address}
-                </p>
-                <p>Reviews:</p>
-                {item.reviews.map((review, index) => (
-                  <p key={index}>{review.review}, {review.rate}</p>
-                ))}
-              </div>
-
-            </div>
-          ))} */}
-      {/* </div>
-      </div> */}
 
       <div className="container-fluid no-padding">
         <div className="row">
           <div className="mx-5 filters" >
-            <form className="form-inline my-2 my-lg-0">
-              <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-              <div className="fil-btn"><button className="btn text-white py-2" style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid #9aa4ec' }}>Search</button></div>
-            </form>
-            {/* <div className="fil-btn"><button className="btn text-white py-2" style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid #9aa4ec' }}>Sort</button></div> */}
-            <div className="fil-btn"><button className="btn text-white py-2" style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid #9aa4ec' }}>Ratings 4+</button></div>
-            <div className="dropdown">
+            <div className="dropdown mt-2 mr-3">
               <button style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid #9aa4ec' }} className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Sort
               </button>
@@ -209,6 +193,19 @@ const UserHomePage = ({ setProfId }) => {
                 <li><a className="dropdown-item">Something else here</a></li>
               </ul>
             </div>
+            <form className="form-inline my-2 my-lg-0">
+              <input
+                className="form-control mr-sm-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+                value={searchTerm}
+                onChange={handleSearchChange}
+              />
+              <div className="fil-btn"><button className="btn text-white py-2" style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid #9aa4ec' }}>Search</button></div>
+            </form>
+            {/* <div className="fil-btn"><button className="btn text-white py-2" style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid #9aa4ec' }}>Sort</button></div> */}
+            <div className="fil-btn"><button className="btn text-white py-2" style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid #9aa4ec' }} onClick={() => handleFilterChange(4)}>Ratings 4+</button></div>
             <div className="fil-btn"><button className="btn text-white py-2" style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid #9aa4ec' }}>Location</button></div>
             <div className="fil-btn"><button className="btn text-white py-2" style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid #9aa4ec' }}>Professional</button></div>
           </div>
@@ -220,7 +217,7 @@ const UserHomePage = ({ setProfId }) => {
           </div>
 
           <div className="col-9 px-5" >
-            {professionals.map((item, i) => (
+            {filteredProfessionals.map((item, i) => (
               <div onClick={() => goToProfessional(item._id)} key={i} className="card mb-3 mt-3" style={{ width: '100%', boxShadow: '0 0 10px grey', cursor: 'pointer' }}>
                 <div className="row g-0">
                   <div className="col-md-2">
