@@ -97,11 +97,11 @@ router.post('/login', [
 })
 
 // ROUTE 3: Get logged in User's Detail using : POST "api/auth/getuser". Login required.
-router.post('/getuser', async (req, res) => {
+router.post('/getuser', fetchUser, async (req, res) => {
     try {
-        userid = req.body.userid;
+        userid = req.user.id;
         const user = await User.findById(userid).select("-password");
-        res.send(user);
+        res.json(user);
     } catch (error) {
         console.log(error.message);
         toast.error('Internal Server Error');

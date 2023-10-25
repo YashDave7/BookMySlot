@@ -69,8 +69,6 @@
 .react-calendar__month-view__weekdays {
   border: 1px solid white;
   border-radius: 5px;
-  
-  
 }
 
 /* Style selected day cell */
@@ -80,6 +78,7 @@
   border: 12px solid #9AA4EC;
 }
 .react-calendar__tile {
+  cursor: pointer;
   border: 1px solid white;
   padding: 5px;
   background-color: white ;

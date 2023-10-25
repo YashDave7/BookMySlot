@@ -44,6 +44,7 @@ const UserAppointments = ({ setProfId }) => {
             })
             setNotes(newNotes);
             toast.success("Appointment Cancelled Successfully");
+
         } catch (error) {
             console.log(error);
         }
@@ -57,7 +58,7 @@ const UserAppointments = ({ setProfId }) => {
         else {
             navigate('/user/login');
         }
-    }, [])
+    }, [cancelAppointment])
 
     return (
         <>
@@ -79,7 +80,12 @@ const UserAppointments = ({ setProfId }) => {
                                 <li class="list-group-item"><span className='p-2' style={{ backgroundColor: '#F4A4A4', borderRadius: '7px', fontWeight: 700 }}>Date</span>: {item.appointmentDate}</li>
                                 <li class="list-group-item"><span className='p-2' style={{ backgroundColor: '#F4A4A4', borderRadius: '7px', fontWeight: 700 }}>Time Slot</span>: {item.timing}</li>
                                 <li class="list-group-item"><span className='p-2' style={{ backgroundColor: '#F4A4A4', borderRadius: '7px', fontWeight: 700 }}>Contact</span>: {item.professionalmobile}, {item.professionalemail}</li>
-                                <li class="list-group-item"><span className='p-2' style={{ backgroundColor: '#F4A4A4', borderRadius: '7px', fontWeight: 700 }}>Status</span>:{item.bookingStatus}</li>
+                                <li class="list-group-item"><span className='p-2' style={{ backgroundColor: '#F4A4A4', borderRadius: '7px', fontWeight: 700 }}>Status</span>:
+                                {item.bookingStatus === 'Cancelled by User' && (' Appointment Cancelled by you')}
+                                {item.bookingStatus === 'Cancelled by Professional' && (` Appointment Cancelled by ${item.professionalname}`)}
+                                {item.bookingStatus === 'Upcoming' && (` Upcoming Appointment`)}
+                                </li>
+                                <li class="list-group-item"><span className='p-2' style={{ backgroundColor: '#F4A4A4', borderRadius: '7px', fontWeight: 700 }}>Payment Status</span>: ₹{item.paymentAmount} {item.paymentStatus} on {item.date}</li>
                             </ul>
                             <div class="card-body">
                                 {item.bookingStatus !== 'Cancelled by User' && item.bookingStatus !== 'Cancelled by Professional' && (

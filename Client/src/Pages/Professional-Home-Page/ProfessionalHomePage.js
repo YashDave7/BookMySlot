@@ -1,11 +1,11 @@
 import React from 'react'
-import MyCalendar from './MyCalendar';
+// import MyCalendar from './MyCalendar';
 import { useState, useEffect } from 'react';
 // import React, { Component } from 'react';
 import Calendar from 'react-calendar';
 import './style/MyCalendar.css';
 import './style/WelcomeMessage1.css';
-import ProfDashboard from './ProfDashboard';
+import Sidebar from './ProfessionalSidebar';
 // import TodaysAppointmets from './TodaysAppointmets';
 import user_img from "../../Pages/User-Home-Page/images/reshma.png";
 import ProfessionalNavbar from "./ProfessionalNavbar"
@@ -70,7 +70,7 @@ const ProfessionalHomePage = () => {
       });
       const json = await response.json();
       setProfessionalDetails(json);
-      console.log(professionalDetails);
+      // console.log(professionalDetails);
     } catch (error) {
       console.log(error);
     }
@@ -101,30 +101,27 @@ const ProfessionalHomePage = () => {
   };
 
   return (
-    <> 
-    <ProfessionalNavbar />
-      <div className='container-fluid no-padding' > 
-     
+    <>
+      <ProfessionalNavbar className='' />
+      <div className='container-fluid no-padding' >
         <div className='row'>
-         
-          <div className='side_bar col-2' style={{backgroundColor:' rgb(250, 164, 164)'}} >
-            <ProfDashboard />
+          <div className='side_bar col-2' style={{ backgroundColor: ' #B9E1DC' }} >
+            <Sidebar />
           </div>
           <div className='col-10'>
             <div className="container-fluid no-padding">
               <div className="row">
-                <div className="col-12" style={{padding:"20px"}} >
-                  <div className="message" style={{paddingTop:'10px'}}>
-                    {/* <img src={doctor} /> */}
-                    <h1>Hello, {professionalDetails.name}</h1> 
+                <div className="col-12" style={{ padding: "20px" }} >
+                  <div className="message" style={{ paddingTop: '10px' }}>
+                    <h1>Hello, {professionalDetails.name}</h1>
                     <p>You have {filteredAppointments.length} appointments today.</p>
                   </div>
                 </div>
-                <div className="col-8" style={{padding:'10px'}}>
+                <div className="col-8" style={{ padding: '10px' }}>
                   {/* <TodaysAppointmets/> */}
                   <div>
-                    <h2 className="py-3"> {date.toDateString()} Appointments</h2>
-                    <div>
+                    <h2 className="py-1"> {date.toDateString()} Appointments</h2>
+                    <div className='scroll' style={{ height: '400px', overflowY: 'scroll', overflowX: 'hidden', scrollbarWidth: 'none' }}>
                       {filteredAppointments.map((item, i) => (
                         <div
                           className="card mb-3 mt-3"
@@ -196,20 +193,17 @@ const ProfessionalHomePage = () => {
                     </div>
                   </div>
                 </div>
-                <div className="col-4" style={{padding:'10px'}}>
-                  <div className="Calendar">
-                    <h1>Calendar</h1>
-                    <Calendar
-                      onChange={onChange}
-                      value={date}
-                    />
-                  </div>
+                <div className="col-4 mt-2" >
+                  <Calendar
+                    onChange={onChange}
+                    value={date}
+                  />
                 </div>
               </div>
             </div>
           </div>
         </div>
-        
+
       </div>
 
       {/* <div className="all_camps">
@@ -239,7 +233,7 @@ const ProfessionalHomePage = () => {
           </div>
         ))}
       </div> */}
-    <ProfessionalFooter />
+      <ProfessionalFooter />
     </>
   )
 }

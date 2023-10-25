@@ -1,12 +1,12 @@
 import React from "react";
-import './style/ProfDashboard.css';
+import './style/ProfessionalSidebar.css';
 import { Link } from 'react-router-dom';
 
-const ProfDasboard = () => {
+const ProfessionalSidebar = () => {
   return (
     <div>
       <nav className="SideMenu">
-        <ul style={{textDecoration: 'none'}}>
+        <ul style={{textDecoration: 'none', backgroundColor: ' #B9E1DC'}}>
           <li>
             <Link className="nav-link" to="/professional/home" style={{textDecoration: 'none', color:'black'}}>Appointments</Link>
           </li>
@@ -33,4 +33,4 @@ const ProfDasboard = () => {
   );
 };
 
-export default ProfDasboard;
+export default ProfessionalSidebar;
