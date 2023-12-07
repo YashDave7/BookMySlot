@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div style={{backgroundColor: '#f3cccc'}}>
+    <div style={{backgroundColor: '#B9E1DC'}}>
       <div className="container">
         <footer className="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5  border-top">
           <div className="col">
@@ -107,7 +107,7 @@ const Footer = () => {
           </div>
         </footer>
       </div>
-      <div className="container-fluid no-padding" style={{backgroundColor: '#F89191'}}>
+      <div className="container-fluid no-padding" style={{backgroundColor: '#B9E1DC', borderTop: '1px solid black'}}>
         <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
           <div className="col-md-4 d-flex align-items-center">
             <a

@@ -13,9 +13,9 @@ const ProfDasboard = () => {
           <li>
             <Link className="nav-link" to="/professional/finance" style={{textDecoration: 'none', color:'black'}}>Finance</Link>
           </li>
-          <li>
+          {/* <li>
             <Link className="nav-link" to="/professional/home" style={{textDecoration: 'none', color:'black'}}>Notifications</Link>
-          </li>
+          </li> */}
           <li>
             <Link className="nav-link" to="/professional/home" style={{textDecoration: 'none', color:'black'}}>LogOut</Link>
           </li>

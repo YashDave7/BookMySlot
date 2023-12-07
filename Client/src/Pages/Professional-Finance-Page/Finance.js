@@ -61,7 +61,7 @@ json.forEach(item => {
     <>
     <ProfessionalNavbar />
       <div className='row'>
-        <div className='side_bar col-2' style={{ backgroundColor: '#f89686' }} >
+        <div className='side_bar col-2' style={{ backgroundColor: '#B9E1DC' }} >
           <ProfDashboard />
         </div>
         <div className='col-10' style={{ border: '2px solid red' }}>

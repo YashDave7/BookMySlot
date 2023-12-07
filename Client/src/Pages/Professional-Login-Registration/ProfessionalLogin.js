@@ -153,8 +153,8 @@ const ProfessionalLogin = () => {
         <>
             <div className="form-modal">
                 <div id='prof-toggle' className="form-toggle">
-                    <button id="" onClick={toggleLogin}>log in</button>
-                    <button id="" onClick={toggleRegister}>Register</button>
+                    <button style={{ backgroundColor: '#B9E1DC', color: 'black'}} id="" onClick={toggleLogin}>log in</button>
+                    <button style={{ backgroundColor: '#B9E1DC', color: 'black'}} id="" onClick={toggleRegister}>Register</button>
                 </div>
                 <div className='login-page-image'>
                     <div>
@@ -165,7 +165,7 @@ const ProfessionalLogin = () => {
                             <form onSubmit={handleLoginSubmit}>
                                 <input type="email" name='email' onChange={onChangeLogin} defaultValue={loginCredentials.email} placeholder="Enter email" />
                                 <input type="password" name='password' onChange={onChangeLogin} defaultValue={loginCredentials.password} placeholder="Enter password" />
-                                <button id='prof-btn' type="submit" className="btn login">login</button>
+                                <button id='prof-btn' style={{ backgroundColor: '#B9E1DC', color: 'black'}} type="submit" className="btn login">login</button>
                                 <p id='prof-details' className='form-details'><Link to="">Forgotten account</Link></p>
                                 {/* <hr /> */}
                             </form>
@@ -208,7 +208,7 @@ const ProfessionalLogin = () => {
                                 <input type="number" name="eachSlotTime" value={registerCredentials.eachSlotTime} onChange={onChangeRegister} placeholder="Enter Total Slot Time" />
                                 <input type="password" name="password" value={registerCredentials.password} onChange={onChangeRegister} placeholder="Enter Password" />
                                 <input type="password" name="confirmPassword" value={registerCredentials.confirmPassword} onChange={onChangeRegister} placeholder="Confirm password" />
-                                <button id="prof-btn" type="submit" className="btn signup">
+                                <button id="prof-btn" style={{ backgroundColor: '#B9E1DC', color: 'black'}} type="submit" className="btn signup">
                                     create account
                                 </button>
                                 <p id="prof-details" className="form-details">

@@ -10,6 +10,7 @@ import Sidebar from './ProfessionalSidebar';
 import user_img from "../../Pages/User-Home-Page/images/reshma.png";
 import ProfessionalNavbar from "./ProfessionalNavbar"
 import ProfessionalFooter from "./ProfessionalFooter"
+import { toast } from 'react-toastify';
 
 const ProfessionalHomePage = () => {
 
@@ -34,8 +35,10 @@ const ProfessionalHomePage = () => {
   }
 
   // API CALL TO CANCEL A APPOINTMENT BY PROFESSIONAL.
-  const cancelAppointment = async (appointmentId) => {
+  const cancelAppointment = async (id) => {
     try {
+
+      toast.success('hello');
       // API call.
       await fetch(`http://localhost:5000/api/booking/professionalcancelappointment/${id}`, {
         method: "PUT",
@@ -48,14 +51,16 @@ const ProfessionalHomePage = () => {
 
       // Logic to delete note at frontend.
       // const newNotes = notes.filter((note) => {
-      //     return note._id !== id
+      //   return note._id !== id
       // })
       // setNotes(newNotes);
-      // toast.success("Note Deleted Successfully");
+      toast.success("Appointment Cancelled Successfully");
+
     } catch (error) {
       console.log(error);
     }
-  };
+  }
+
 
   // API CALL TO GET LOGGED IN PROFESSIONAL'S DETAILS.
   const getProfessionalDetails = async () => {
@@ -91,10 +96,10 @@ const ProfessionalHomePage = () => {
     // Filter appointments based on selected date
     const filtered = appointments.filter(appointment => new Date(appointment.appointmentDate).toDateString() === date.toDateString());
     setFilteredAppointments(filtered);
-    console.log(date.toDateString());
-    console.log(appointments);
-    console.log(filtered);
-  }, [date, appointments]);
+    // console.log(date.toDateString());
+    // console.log(appointments);
+    // console.log(filtered);
+  }, [date, appointments, cancelAppointment]);
 
   const onChange = date => {
     setDate(date);
@@ -114,7 +119,7 @@ const ProfessionalHomePage = () => {
                 <div className="col-12" style={{ padding: "20px" }} >
                   <div className="message" style={{ paddingTop: '10px' }}>
                     <h1>Hello, {professionalDetails.name}</h1>
-                    <p>You have {filteredAppointments.length} appointments today.</p>
+                    <p>You have {filteredAppointments.length} appointments on {date.toDateString()}.</p>
                   </div>
                 </div>
                 <div className="col-8" style={{ padding: '10px' }}>
@@ -141,48 +146,57 @@ const ProfessionalHomePage = () => {
                                 </h6>
                                 <p className="card-text">
                                   <span
-                                    className="px-2 py-2 text-white mr-3"
-                                    style={{ backgroundColor: "#F4A4A4", borderRadius: "7px" }}
+                                    className="px-2 py-2 mr-3"
+                                    style={{ backgroundColor: '#B9E1DC', color: 'black', borderRadius: "7px" }}
                                   >
                                     {item.timing}
+                                  </span>
+                                  <span
+                                    className="px-2 py-2 mr-3"
+                                    // style={{
+                                    //   backgroundColor: "#D83A22",
+                                    //   fontWeight: 700,
+                                    //   border: "1px solid black",
+                                    //   marginRight: "10px"
+                                    // }}
+                                    style={{ backgroundColor: '#B9E1DC', color: 'black', borderRadius: "7px", marginRight: "10px" }}
+                                  >
+                                    {item.bookingStatus === 'Cancelled by User' && (`Appointment Cancelled by {item.username}`)}
+                                    {item.bookingStatus === 'Cancelled by Professional' && (` Appointment Cancelled by You`)}
+                                    {item.bookingStatus === 'Upcoming' && (` Upcoming Appointment`)}
                                   </span>
 
 
                                 </p>
                                 {/* <p className="card-text">Student</p> */}
                                 <p className="card-text text-secondary">
-                                  <button
-                                    className="btn text-white py-2"
-                                    style={{
-                                      backgroundColor: "#D83A22",
-                                      fontWeight: 700,
-                                      border: "1px solid black",
-                                      marginRight: "10px"
-                                    }}
-                                  >
-                                    {item.bookingStatus}
-                                  </button>
-                                  <button
-                                    className="btn text-white py-2"
-                                    style={{
-                                      backgroundColor: "#D83A22",
-                                      fontWeight: 700,
-                                      border: "1px solid black",
-                                    }}
-                                  >
-                                    Cancel
-                                  </button>
+                                  {/* Status:  */}
+                                  {item.bookingStatus !== 'Cancelled by User' && item.bookingStatus !== 'Cancelled by Professional' && (
+                                    <button
+                                      className="btn py-2"
+                                      // style={{
+                                      //   backgroundColor: "#D83A22",
+                                      //   fontWeight: 700,
+                                      //   border: "1px solid black",
+                                      // }}
+                                      style={{ backgroundColor: '#B9E1DC', color: 'black', fontWeight: '700', borderRadius: "7px", marginRight: "10px" }}
+                                      onClick={() => cancelAppointment(item._id)}
+                                    >
+                                      Cancel
+                                    </button>
+                                  )}
                                 </p>
                               </div>
                             </div>
                             <div className="col-md-2 m-auto">
                               <button
-                                className="btn text-white py-2"
-                                style={{
-                                  backgroundColor: "#D83A22",
-                                  fontWeight: 700,
-                                  border: "1px solid black",
-                                }}
+                                className="btn py-2"
+                                // style={{
+                                //   backgroundColor: "#D83A22",
+                                //   fontWeight: 700,
+                                //   border: "1px solid black",
+                                // }}
+                                style={{ backgroundColor: '#B9E1DC', color: 'black', borderRadius: "7px", marginRight: "10px" }}
                               >
                                 {item.paymentStatus}, {item.paymentAmount}
                               </button>

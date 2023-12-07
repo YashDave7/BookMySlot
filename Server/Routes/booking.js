@@ -7,7 +7,7 @@ const fetchProfessional = require('../middleware/fetchProfessional');
 const nodemailer = require('nodemailer');
 
 const accountSid = process.env.accountSid;
-const authToken =  process.env.authToken;
+const authToken = process.env.authToken;
 
 const client = require('twilio')(accountSid, authToken);
 
@@ -141,6 +141,7 @@ router.put('/usercancelappointment/:id', fetchUser, async (req, res) => {
 router.put('/professionalcancelappointment/:id', fetchProfessional, async (req, res) => {
 
     try {
+        console.log("helloooo");
         // Find the appointment to be cancelled  it.
         let appointment = await Appointments.findById(req.params.id);
         if (!appointment) {
@@ -169,7 +170,7 @@ router.put('/professionalcancelappointment/:id', fetchProfessional, async (req, 
         cancelled.professionalprofession = appointment.professionalprofession;
         cancelled.professionalspecialisation = appointment.professionalspecialisation;
         // cancelled.timing = appointment.timing;
-        cancelled.status = "Cancelled by Professional";
+        cancelled.bookingStatus = "Cancelled by Professional";
 
 
         appointment = await Appointments.findByIdAndUpdate(req.params.id, { $set: cancelled }, { new: true });

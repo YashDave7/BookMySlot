@@ -11,8 +11,8 @@ export default function Navbar(props) {
     }
     return (
         <>
-            <nav className="navbar navbar-expand-lg navbar-light border" style={{ backgroundColor: '#FAA4A4', padding: '10px 50px', fontWeight: 700 }}>
-                <a className="navbar-brand" href="/" style={{ color: 'white' }}>BookMySlot</a>
+            <nav className="navbar navbar-expand-lg navbar-light border" style={{ backgroundColor: '#B9E1DC', padding: '10px 50px', fontWeight: 700 }}>
+                <a className="navbar-brand" href="/">BookMySlot</a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -44,7 +44,7 @@ export default function Navbar(props) {
                         <ul className="navbar-nav ml-auto">
                             <Link className="nav-link" to="/professional/home">Appointments</Link>
                             <Link className="nav-link" to="/professional/finance">Finance</Link>
-                            <Link className="nav-link" to="/professional/notifications">Notifications</Link>
+                            {/* <Link className="nav-link" to="/professional/notifications">Notifications</Link> */}
                             <Link className="nav-link" to="/" onClick={handleLogout}>Logout</Link>
                         </ul>
                     }

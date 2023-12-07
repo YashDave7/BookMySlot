@@ -39,10 +39,10 @@ const UserAppointments = ({ setProfId }) => {
             // const json = response.json();
 
             // Logic to delete note at frontend.
-            const newNotes = notes.filter((note) => {
-                return note._id !== id
-            })
-            setNotes(newNotes);
+            // const newNotes = notes.filter((note) => {
+            //     return note._id !== id
+            // })
+            // setNotes(newNotes);
             toast.success("Appointment Cancelled Successfully");
 
         } catch (error) {

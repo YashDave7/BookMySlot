@@ -369,7 +369,7 @@ const Professional = (props) => {
 
   // Check if the logged-in user has already submitted a review
   const hasUserReviewed = reviews.some((review) => review.user_id === user._id);
-  
+
   return (
     <>
       <Navbar />
@@ -424,7 +424,7 @@ const Professional = (props) => {
             <Calendar
               onChange={onChange}
               value={date}
-              />
+            />
           </div>
 
           {/* <!-- Force next columns to break to new line at md breakpoint and up --> */}
@@ -480,12 +480,12 @@ const Professional = (props) => {
                     </div>
                     <div className="col-md-7">
                       <div className="card-body">
-                        <h5 className="card-title" style={{ fontWeight: 700 }}>{item.username}</h5>
+                        <h5 className="card-title" style={{ fontWeight: 700, fontSize: '15px' }}>{item.username}</h5>
 
-                        <p className="card-text">
-                          {item.review}
+                        <p style={{width: '135%'}} className="">
+                          <span>{item.review}</span>
+                      <span style={{fontStyle: 'italic', float: 'right' }}>{new Date(item.date).toDateString()}</span>
                         </p>
-
                       </div>
                     </div>
                     <p className="card-text my-4">
