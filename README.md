@@ -58,12 +58,12 @@
 **Dependencies**
 
 
-- [react-calendar]
-- [react-toastify]
-- [nodemailer]
-- [twilio]
-- [razorpay]
-- [express-validator]
+- react-calendar
+- react-toastify
+- nodemailer
+- twilio
+- razorpay
+- express-validator
 
 <br />
 <br />
@@ -76,6 +76,6 @@
 - Vaishnavi Hindalekar
   - [LinkedIn](https://www.linkedin.com/in/vaishnavi-hindalekar-37747b259/)
 - Basavraj Dhamange
-  - [Twitter](https://www.linkedin.com/in/basavraj-dhamanage-493920262/) 
+  - [LinkedIn](https://www.linkedin.com/in/basavraj-dhamanage-493920262/) 
 - Asmi Gawade
-  - [Twitter](https://www.linkedin.com/in/asmi-gawade-431a96262/) 
+  - [LinkedIn](https://www.linkedin.com/in/asmi-gawade-431a96262/) 
