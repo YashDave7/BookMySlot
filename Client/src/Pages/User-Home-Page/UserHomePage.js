@@ -200,40 +200,41 @@ const UserHomePage = ({ setProfId }) => {
 
           <div className="col-9 px-5" style={{ height: '700px', overflow: 'scroll' }} >
             {filteredProfessionals.map((item, i) => (
-              <div onClick={() => goToProfessional(item._id)} key={i} className="card mb-3 mt-3" style={{ width: '100%', boxShadow: '0 0 10px grey', cursor: 'pointer' }}>
-                <div className="row g-0">
-                  <div className="col-md-2">
-                    <img src={user_img} className="img-fluid rounded-start" alt="..." />
-                  </div>
-                  <div className="col-md-7">
-                    <div className="card-body">
-                      <h5 className="card-title" style={{ fontWeight: 700 }}>{item.name}</h5>
-                      <p className="card-text">
-                        <span className='px-2 py-1 text-white mr-3' style={{ backgroundColor: '#F4A4A4', borderRadius: '7px' }}>
-                          {isNaN(calculateAverageRating(item)) ? 0.0 : calculateAverageRating(item).toFixed(1)}
-                        </span>
-
-                        <span className="stars">
-                          {generateStarIcons(calculateAverageRating(item))}
-                        </span>
-                        <small className="mx-3"> {item.reviews.length} Ratings </small>
-                      </p>
-                      <p className="card-text">
-                        {item.profession} - {item.specialisation}
-                      </p>
-                      <p className="card-text">
-                        Fees: {item.fees} per session
-                      </p>
-                      <p className="card-text text-secondary">
-                        {item.address}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="col-md-3 m-auto">
-                    <button className="btn text-white py-2" style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid #9aa4ec' }}>Book Your Appointment</button>
+              <div onClick={() => goToProfessional(item._id)} key={i} className="card mb-3 mt-3" style={{ width: '100%', boxShadow: '0 0 10px grey', cursor: 'pointer', borderRadius: '10px', overflow: 'hidden' }}>
+              <div className="row g-0">
+                <div className="col-md-2">
+                  <img src={user_img} className="img-fluid rounded-start" alt="Profile" style={{ height: '100%', borderRadius: '10px 0 0 10px' }} />
+                </div>
+                <div className="col-md-7">
+                  <div className="card-body">
+                    <h5 className="card-title" style={{ fontWeight: 700 }}>{item.name}</h5>
+                    <p className="card-text">
+                      <span className='px-2 py-1 text-white mr-3' style={{ backgroundColor: '#F4A4A4', borderRadius: '7px' }}>
+                        {isNaN(calculateAverageRating(item)) ? 0.0 : calculateAverageRating(item).toFixed(1)}
+                      </span>
+            
+                      <span className="stars">
+                        {generateStarIcons(calculateAverageRating(item))}
+                      </span>
+                      <small className="mx-3"> {item.reviews.length} Ratings </small>
+                    </p>
+                    <p className="card-text">
+                      {item.profession} - {item.specialisation}
+                    </p>
+                    <p className="card-text">
+                      Fees: {item.fees} per session
+                    </p>
+                    <p className="card-text text-secondary">
+                      {item.address}
+                    </p>
                   </div>
                 </div>
+                <div className="col-md-3 m-auto">
+                  <button className="btn text-white py-2" style={{ backgroundColor: '#9AA4EC', fontWeight: 700, border: '1px solid #9aa4ec', borderRadius: '0 10px 10px 0' }}>Book Your Appointment</button>
+                </div>
               </div>
+            </div>
+            
             ))}
           </div>
 
