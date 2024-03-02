@@ -85,13 +85,15 @@ const UserLoginSignin = () => {
     // const [loginStyle, setLoginStyle] = useState('login-toggle');
     // const [signupStyle, setSignupStyle] = useState('signup-toggle');
 
-    const onSuccess = (res) => {
-        console.log("Login Successfully! Current User: ", res.profileObj);
-    }
-    
-    const onFailure = (res) => {
-        console.log("Login Failed! res: ", res);
-    }
+    const onSuccess = (googleUser) => {
+        const profile = googleUser.getBasicProfile();
+        console.log('Login Successful! User: ', profile.getName());
+        // Here, you might want to do something like send the user data to your backend for authentication
+    };
+
+    const onFailure = (error) => {
+        console.log('Login Failed!', error);
+    };
 
     // const login = async (code) => {
     //     return fetch('/api/auth/google', {
@@ -131,7 +133,7 @@ const UserLoginSignin = () => {
 
         gapi.load('client:auth2', start);
     });
-    
+
 
     function onSignIn(googleUser) {
         var profile = googleUser.getBasicProfile();
@@ -143,54 +145,60 @@ const UserLoginSignin = () => {
 
     return (
         <>
-  <div className="form-modal" style={{ textAlign: 'center' }}>
+            <div className="form-modal" style={{ textAlign: 'center' }}>
 
-    <div className="form-toggle" style={{ marginBottom: '20px' }}>
-      <button style={{ padding: '10px', backgroundColor: '#3498db', color: '#fff', cursor: 'pointer', marginRight: '10px' }} onClick={toggleLogin}>Log In</button>
-      <button style={{ padding: '10px', backgroundColor: '#2ecc71', color: '#fff', cursor: 'pointer' }} onClick={toggleSignup}>Sign Up</button>
-    </div>
+                <div className="form-toggle" style={{ marginBottom: '20px' }}>
+                    <button style={{ padding: '10px', backgroundColor: '#3498db', color: '#fff', cursor: 'pointer', marginRight: '10px' }} onClick={toggleLogin}>Log In</button>
+                    <button style={{ padding: '10px', backgroundColor: '#2ecc71', color: '#fff', cursor: 'pointer' }} onClick={toggleSignup}>Sign Up</button>
+                </div>
 
-    <div className='login-page-image' style={{ display: 'flex', justifyContent: 'center' }}>
-      <div>
-        <img className='calender-img' src={calimg} height={"530px"} alt="Calendar" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }} />
-      </div>
+                <div className='login-page-image' style={{ display: 'flex', justifyContent: 'center' }}>
+                    <div>
+                        <img className='calender-img' src={calimg} height={"530px"} alt="Calendar" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }} />
+                    </div>
 
-      {showLogin && (
-        <div id="login-form" style={{ marginLeft: '20px' }}>
-          <form onSubmit={handleLoginSubmit}>
-            <input type="email" name='email' onChange={onChange} defaultValue={loginCredentials.email} placeholder="Enter email" style={{ marginBottom: '10px', padding: '8px' }} />
-            <input type="password" name='password' onChange={onChange} defaultValue={loginCredentials.password} placeholder="Enter password" style={{ marginBottom: '10px', padding: '8px' }} />
-            <button type="submit" className="btn login" style={{ backgroundColor: '#3498db', color: '#fff', padding: '10px', cursor: 'pointer', marginTop: '10px' }}>Login</button>
-            <p className='form-details' style={{ marginTop: '10px' }}><Link to="">Forgotten account</Link></p>
-            <GoogleLogin
-              clientId="85252673721-94ig6ugsoribq0cg4auieqppn6o9ar79.apps.googleusercontent.com"
-              buttonText="Login with Google"
-              onSuccess={onSuccess}
-              onFailure={onFailure}
-              cookiePolicy={'single_host_origin'}
-              style={{ marginTop: '10px' }}
-            />
-          </form>
-        </div>
-      )}
+                    {showLogin && (
+                        <div id="login-form" style={{ marginLeft: '20px' }}>
+                            <form onSubmit={handleLoginSubmit}>
+                                <input type="email" name='email' onChange={onChange} defaultValue={loginCredentials.email} placeholder="Enter email" style={{ marginBottom: '10px', padding: '8px' }} />
+                                <input type="password" name='password' onChange={onChange} defaultValue={loginCredentials.password} placeholder="Enter password" style={{ marginBottom: '10px', padding: '8px' }} />
+                                <button type="submit" className="btn login" style={{ backgroundColor: '#3498db', color: '#fff', padding: '10px', cursor: 'pointer', marginTop: '10px' }}>Login</button>
+                                <p className='form-details' style={{ marginTop: '10px' }}><Link to="">Forgotten account</Link></p>
+                                <GoogleLogin
+                                    clientId="85252673721-94ig6ugsoribq0cg4auieqppn6o9ar79.apps.googleusercontent.com"
+                                    buttonText="Login with Google"
+                                    onSuccess={onSuccess}
+                                    onFailure={onFailure}
+                                    cookiePolicy={'single_host_origin'}
+                                    render={renderProps => (
+                                        <button onClick={renderProps.onClick} disabled={renderProps.disabled} className="google-login-button">
+                                            <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google Icon" className="google-icon" />
+                                            <span className="google-text">Sign in with Google</span>
+                                        </button>
+                                    )}
+                                />
 
-      {showSignup && (
-        <div id="signup-form" style={{ marginLeft: '20px' }}>
-          <form onSubmit={handleSignupSubmit}>
-            <input type="email" name='email' defaultValue={signupCredentials.email} onChange={onChangeSignup} placeholder="Enter your email" style={{ marginBottom: '10px', padding: '8px' }} />
-            <input type="text" name='name' defaultValue={signupCredentials.name} onChange={onChangeSignup} placeholder="Enter your name" style={{ marginBottom: '10px', padding: '8px' }} />
-            <input type="number" name='mobile' defaultValue={signupCredentials.mobile} onChange={onChangeSignup} placeholder="Enter your mobile no." style={{ marginBottom: '10px', padding: '8px' }} />
-            <input type="password" name='password' defaultValue={signupCredentials.password} onChange={onChangeSignup} placeholder="Create password" style={{ marginBottom: '10px', padding: '8px' }} />
-            <input type="password" name='confirmPassword' defaultValue={signupCredentials.confirmPassword} onChange={onChangeSignup} placeholder="Confirm password" style={{ marginBottom: '10px', padding: '8px' }} />
-            <button type="submit" className="btn signup" style={{ backgroundColor: '#2ecc71', color: '#fff', padding: '10px', cursor: 'pointer', marginTop: '10px' }}>Create Account</button>
-            <p className='form-details' style={{ marginTop: '10px' }}>Clicking <strong>create account</strong> means that you agree to our <Link to="">terms of services</Link>.</p>
-            <div className="g-signin2" data-onsuccess="onSignIn" style={{ marginTop: '10px' }}></div>
-          </form>
-        </div>
-      )}
-    </div>
-  </div>
-</>
+                            </form>
+                        </div>
+                    )}
+
+                    {showSignup && (
+                        <div id="signup-form" style={{ marginLeft: '20px' }}>
+                            <form onSubmit={handleSignupSubmit}>
+                                <input type="email" name='email' defaultValue={signupCredentials.email} onChange={onChangeSignup} placeholder="Enter your email" style={{ marginBottom: '10px', padding: '8px' }} />
+                                <input type="text" name='name' defaultValue={signupCredentials.name} onChange={onChangeSignup} placeholder="Enter your name" style={{ marginBottom: '10px', padding: '8px' }} />
+                                <input type="number" name='mobile' defaultValue={signupCredentials.mobile} onChange={onChangeSignup} placeholder="Enter your mobile no." style={{ marginBottom: '10px', padding: '8px' }} />
+                                <input type="password" name='password' defaultValue={signupCredentials.password} onChange={onChangeSignup} placeholder="Create password" style={{ marginBottom: '10px', padding: '8px' }} />
+                                <input type="password" name='confirmPassword' defaultValue={signupCredentials.confirmPassword} onChange={onChangeSignup} placeholder="Confirm password" style={{ marginBottom: '10px', padding: '8px' }} />
+                                <button type="submit" className="btn signup" style={{ backgroundColor: '#2ecc71', color: '#fff', padding: '10px', cursor: 'pointer', marginTop: '10px' }}>Create Account</button>
+                                <p className='form-details' style={{ marginTop: '10px' }}>Clicking <strong>create account</strong> means that you agree to our <Link to="">terms of services</Link>.</p>
+                                <div className="g-signin2" data-onsuccess="onSignIn" style={{ marginTop: '10px' }}></div>
+                            </form>
+                        </div>
+                    )}
+                </div>
+            </div>
+        </>
 
     )
 }
