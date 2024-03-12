@@ -127,6 +127,13 @@
   <img src="./images/Professional Finance.png" alt='Professional Finance' width="80%" />
 </p>
 
+**BookMySlot Company's Finance**
+<br />
+
+<p align="left">
+  <img src="./images/Admin.png" alt='Admin' width="80%" />
+</p>
+
 <br />
 
 ### Technologies Used
