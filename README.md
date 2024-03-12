@@ -38,21 +38,33 @@
 
 #### Landing Page
 
-![Landing Page](./images/Landing Page.png)
+<p align="center">
+  <img src="./images/Landing Page.png" width="80%" />
+</p>
 
-| User Login Page                                  | User Signup Page                                   |
-| ------------------------------------------------ | -------------------------------------------------- |
-| ![User Login Page](./images/User Login Page.png) | ![User Signup Page](./images/User Signup Page.png) |
+#### User Login Page
 
-| Professional Login Page                                          | Professional Register Page                                             |
-| ---------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| ![Professional Login Page](./images/Professional Login Page.png) | ![Professional Register Page](./images/Professional Register Page.png) |
+<p align="center">
+  <img src="./images/User Login Page.png" width="80%" />
+</p>
+
+#### User Signup Page
+
+<p align="center">
+  <img src="./images/User Signup Page.png" width="80%" />
+</p>
+
+#### Professional Login Page
+
+<p align="center">
+  <img src="./images/Professional Login Page.png" width="80%" />
+</p>
 
 #### User Home Page
 
-![User Home Page](./images/User_Home_Screenshot.png)
-
-<!-- Add more sections and screenshots as needed -->
+<p align="center">
+  <img src="./images/User Home Page.png" width="80%" />
+</p>
 
 <br />
 
