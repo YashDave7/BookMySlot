@@ -56,7 +56,6 @@
     </tr>
 </table>
 
-
 **User Home Page**
 <br />
 
@@ -64,14 +63,18 @@
   <img src="./images/User Home Page.png" alt='User Home Page' width="80%" />
 </p>
 
-**Booking Appointment and Payment**
+**Booking Appointment**
+<br />
+
+<p align="left">
+  <img src='./images/Booking.png' alt='Booking Appointment' width="80%" >
+  </p>
+
+**Payment**
 <br />
 
 <table>
     <tr>
-        <td>
-            <img src='./images/Booking.png' alt='Booking Appointment'>
-        </td>
         <td>
             <img src='./images/Payment_1.png' alt='Payment'>
         </td>
@@ -80,6 +83,21 @@
         </td>
     </tr>
 </table>
+
+**Mail Notification**
+<br />
+
+<p align="left">
+  <img src="./images/mail.png" alt='Mail Notification' width="80%" />
+</p>
+
+
+**Appointments Page and Cancel Appointment Feature**
+<br />
+
+<p align="left">
+  <img src="./images/Appointment Page.png" alt='Appointment Page' width="80%" />
+</p>
 
 **Professional Register and Login**
 <br />

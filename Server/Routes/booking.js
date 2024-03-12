@@ -49,6 +49,7 @@ router.post('/bookappointment/:id', fetchUser, async (req, res) => {
 
         // CODE TO SEND MAIL NOTIFICATION TO THE USER.
         const useremail = user.email;
+        const username = user.name;
         const date = req.body.appointmentDate;
         const slot = req.body.timing;
         console.log("Sending Booking Mail")
@@ -61,10 +62,26 @@ router.post('/bookappointment/:id', fetchUser, async (req, res) => {
         });
 
         const options = {
-            from: 'yashdave307@gmail.com',
+            from: 'BookMySlot@gmail.com',
             to: useremail, // RECEIVER EMAIL.
-            subject: "Appointment Scheduled",
-            text: `Your Appointment is scheduled on ${date} at ${slot}`
+            subject: "Confirm Your Upcoming Appointment with BookMySlot!",
+            text: `
+            Dear ${username},
+
+We hope this email finds you well!
+
+We are thrilled to confirm your upcoming appointment with BookMySlot. Your time slot has been reserved for:
+
+Date: ${date}
+Time: ${slot}
+
+We can't wait to assist you at our scheduled meeting. Please mark your calendar, and feel free to reach out if you have any questions or need to reschedule.
+
+Thank you for choosing BookMySlot. We're committed to making your experience seamless and enjoyable.
+
+Warm regards,
+BookMySlot Team
+            `
         };
 
         transporter.sendMail(options, function (err, info) {
