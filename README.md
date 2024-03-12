@@ -70,10 +70,13 @@
 <table>
     <tr>
         <td>
-            <img src='./images/User Signup Page.png' alt='Booking Appointment'>
+            <img src='./images/Booking.png' alt='Booking Appointment'>
         </td>
         <td>
-            <img src='./images/User Login Page.png' alt='Payment'>
+            <img src='./images/Payment_1.png' alt='Payment'>
+        </td>
+        <td>
+            <img src='./images/Payment_2.png' alt='Payment'>
         </td>
     </tr>
 </table>
