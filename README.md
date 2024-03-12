@@ -96,7 +96,7 @@
 <br />
 
 <p align="left">
-  <img src="./images/Appointment Page.png" alt='Appointment Page' width="80%" />
+  <img src="./images/Appointments Page.png" alt='Appointment Page' width="80%" />
 </p>
 
 **Professional Register and Login**
@@ -112,6 +112,20 @@
         </td>
     </tr>
 </table>
+
+**Professional's Dashboard**
+<br />
+
+<p align="left">
+  <img src="./images/Professional Home.png" alt='Professional Home' width="80%" />
+</p>
+
+**Professional's Finance Page**
+<br />
+
+<p align="left">
+  <img src="./images/Professional Finance.png" alt='Professional Finance' width="80%" />
+</p>
 
 <br />
 
