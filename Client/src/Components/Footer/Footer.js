@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div style={{backgroundColor: '#d4d9f7'}}>
+    <div style={{ backgroundColor: '#d4d9f7' }}>
       <div className="container">
         <footer className="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 border-top">
           <div className="col mb-3">
@@ -14,8 +14,8 @@ const Footer = () => {
           <div className="col mb-3"></div>
 
           <div className="col mb-3">
-            <h5>Section</h5>
-            <ul className="nav flex-column" style={{ listStyle: 'none', padding: 0 ,  }}>
+            <h5>Section 1</h5>
+            <ul className="nav flex-column" style={{ listStyle: 'none', padding: 0, }}>
               <li className="nav-item mb-2" >
                 <a href="#" className="nav-link p-0 text-body-secondary">
                   Home
@@ -45,7 +45,7 @@ const Footer = () => {
           </div>
 
           <div className="col mb-3">
-            <h5>Section</h5>
+            <h5>Section 2</h5>
             <ul className="nav flex-column">
               <li className="nav-item mb-2">
                 <a href="#" className="nav-link p-0 text-body-secondary">
@@ -76,7 +76,7 @@ const Footer = () => {
           </div>
 
           <div className="col mb-3">
-            <h5>Section</h5>
+            <h5>Section 3</h5>
             <ul className="nav flex-column">
               <li className="nav-item mb-2">
                 <a href="#" className="nav-link p-0 text-body-secondary">
@@ -107,7 +107,7 @@ const Footer = () => {
           </div>
         </footer>
       </div>
-      <div className="container-fluid no-padding" style={{backgroundColor: '#9AA4EC'}}>
+      <div className="container-fluid no-padding" style={{ backgroundColor: '#9AA4EC' }}>
         <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
           <div className="col-md-4 d-flex align-items-center">
             <a

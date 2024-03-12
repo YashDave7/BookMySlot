@@ -87,7 +87,9 @@ const UserLoginSignin = () => {
 
     const onSuccess = (googleUser) => {
         const profile = googleUser.getBasicProfile();
-        console.log('Login Successful! User: ', profile.getName());
+        console.log('Login Successful! User: ', profile);
+        toast.success("Logged In Successfully");
+        navigate("/user/home");
         // Here, you might want to do something like send the user data to your backend for authentication
     };
 

@@ -1,7 +1,6 @@
 import React from 'react'
 // import MyCalendar from './MyCalendar';
 import { useState, useEffect } from 'react';
-// import React, { Component } from 'react';
 import Calendar from 'react-calendar';
 import './style/MyCalendar.css';
 import './style/WelcomeMessage1.css';
@@ -21,7 +20,7 @@ const ProfessionalHomePage = () => {
 
   // API CALL TO FETCH ALL THE APPOINTMENTS.
   const fetchAppointments = async () => {
-    // API call.'
+    // API call.
     const response = await fetch(`http://localhost:5000/api/professionalRoutes/fetchAppointments`, {
       method: "GET",
       headers: {

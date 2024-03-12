@@ -1,6 +1,6 @@
 <br />
 <p align="center">
-  <img src="./assets/cover.png" width="80%" />
+  <img src="./images/Landing Page.png" width="80%" />
     <br />
 </p>
 <br />
@@ -71,11 +71,11 @@
 
 ### Author
 
-- Yash Dave 
-  - [LinkedIn](https://www.linkedin.com/in/yashdave7/)
-- Vaishnavi Hindalekar
-  - [LinkedIn](https://www.linkedin.com/in/vaishnavi-hindalekar-37747b259/)
-- Basavraj Dhamange
-  - [LinkedIn](https://www.linkedin.com/in/basavraj-dhamanage-493920262/) 
 - Asmi Gawade
   - [LinkedIn](https://www.linkedin.com/in/asmi-gawade-431a96262/) 
+- Basavraj Dhamange
+  - [LinkedIn](https://www.linkedin.com/in/basavraj-dhamanage-493920262/) 
+- Vaishnavi Hindalekar
+  - [LinkedIn](https://www.linkedin.com/in/vaishnavi-hindalekar-37747b259/)
+- Yash Dave 
+  - [LinkedIn](https://www.linkedin.com/in/yashdave7/)
