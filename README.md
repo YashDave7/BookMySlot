@@ -36,6 +36,24 @@
 
 ### Demonstration
 
+#### Landing Page
+
+![Landing Page](./images/Landing Page.png)
+
+| User Login Page                                  | User Signup Page                                   |
+| ------------------------------------------------ | -------------------------------------------------- |
+| ![User Login Page](./images/User Login Page.png) | ![User Signup Page](./images/User Signup Page.png) |
+
+| Professional Login Page                                          | Professional Register Page                                             |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| ![Professional Login Page](./images/Professional Login Page.png) | ![Professional Register Page](./images/Professional Register Page.png) |
+
+#### User Home Page
+
+![User Home Page](./images/User_Home_Screenshot.png)
+
+<!-- Add more sections and screenshots as needed -->
+
 <br />
 
 ### technologies
@@ -57,7 +75,6 @@
 
 **Dependencies**
 
-
 - react-calendar
 - react-toastify
 - nodemailer
@@ -68,14 +85,13 @@
 <br />
 <br />
 
-
 ### Author
 
 - Asmi Gawade
-  - [LinkedIn](https://www.linkedin.com/in/asmi-gawade-431a96262/) 
+  - [LinkedIn](https://www.linkedin.com/in/asmi-gawade-431a96262/)
 - Basavraj Dhamange
-  - [LinkedIn](https://www.linkedin.com/in/basavraj-dhamanage-493920262/) 
+  - [LinkedIn](https://www.linkedin.com/in/basavraj-dhamanage-493920262/)
 - Vaishnavi Hindalekar
   - [LinkedIn](https://www.linkedin.com/in/vaishnavi-hindalekar-37747b259/)
-- Yash Dave 
+- Yash Dave
   - [LinkedIn](https://www.linkedin.com/in/yashdave7/)
