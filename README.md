@@ -36,39 +36,65 @@
 
 ### Demonstration
 
-#### Landing Page
+**Landing Page**
 
-<p align="center">
-  <img src="./images/Landing Page.png" width="80%" />
+<p align="left">
+  <img src="./images/Landing Page.png" alt='Intro Screen' width="80%" />
 </p>
 
-#### User Login Page
+**User Register & Login**
+<br />
 
-<p align="center">
-  <img src="./images/User Login Page.png" width="80%" />
+<table>
+    <tr>
+        <td>
+            <img src='./images/User Signup Page.png' alt='REGISTER'>
+        </td>
+        <td>
+            <img src='./images/User Login Page.png' alt='LOGIN'>
+        </td>
+    </tr>
+</table>
+
+
+**User Home Page**
+<br />
+
+<p align="left">
+  <img src="./images/User Home Page.png" alt='User Home Page' width="80%" />
 </p>
 
-#### User Signup Page
+**Booking Appointment and Payment**
+<br />
 
-<p align="center">
-  <img src="./images/User Signup Page.png" width="80%" />
-</p>
+<table>
+    <tr>
+        <td>
+            <img src='./images/User Signup Page.png' alt='Booking Appointment'>
+        </td>
+        <td>
+            <img src='./images/User Login Page.png' alt='Payment'>
+        </td>
+    </tr>
+</table>
 
-#### Professional Login Page
+**Professional Register and Login**
+<br />
 
-<p align="center">
-  <img src="./images/Professional Login Page.png" width="80%" />
-</p>
-
-#### User Home Page
-
-<p align="center">
-  <img src="./images/User Home Page.png" width="80%" />
-</p>
+<table>
+    <tr>
+        <td>
+            <img src='./images/Professional Register Page.png' alt='REGISTER'>
+        </td>
+        <td>
+            <img src='./images/Professional Login Page.png' alt='LOGIN'>
+        </td>
+    </tr>
+</table>
 
 <br />
 
-### technologies
+### Technologies Used
 
 <br />
 
