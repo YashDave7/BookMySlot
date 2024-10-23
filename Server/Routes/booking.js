@@ -57,12 +57,12 @@ router.post('/bookappointment/:id', fetchUser, async (req, res) => {
             service: "Gmail",
             auth: {
                 user: "yashdave307@gmail.com",
-                pass: "oqfv kezr tcsl rbte",
+                pass: "lubz xmic pres rjah",
             },
         });
 
         const options = {
-            from: 'BookMySlot@gmail.com',
+            from: 'yashdave307@gmail.com',
             to: useremail, // RECEIVER EMAIL.
             subject: "Confirm Your Upcoming Appointment with BookMySlot!",
             text: `

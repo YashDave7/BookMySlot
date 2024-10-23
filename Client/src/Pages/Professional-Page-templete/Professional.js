@@ -129,7 +129,7 @@ const Professional = (props) => {
   const initPayment = (data) => {
     console.log("In init")
     const options = {
-      key: "rzp_test_zkRk5Km3mrtYWp",
+      key: "rzp_test_hmnbE1uOb0HXWL",
       amount: data.amount,
       currency: data.currency,
       description: "Test Transaction",
